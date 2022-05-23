@@ -28,7 +28,7 @@ class= weapons_randomized
     set_shooting_time
 
     get_shooting_count
-    get_shooting_time
+    get_shooting_timeSAVED
 
 
 
@@ -48,9 +48,10 @@ class Eternal_Weapons_weaponized:
 
 
     def __init__(self, weapon = 0, shooting_count = 0, shooting_time = 0):
-        self.weapon = 1
-        self.shooting_count = shooting_count
-        self.shooting_time = shooting_time
+        random_weapon_number = random.randint(1, 7)
+        self.weapon = random_weapon_number
+        self.shooting_count = random_weapon_number
+        self.shooting_time = random_weapon_number
         
 
         
