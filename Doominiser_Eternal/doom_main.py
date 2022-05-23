@@ -44,42 +44,43 @@ class Eternal_Weapons_weaponized:
 
     Eternal_Weapons_Easy = {1:'Combat_shotgun', 2: "Heavy_Cannon", 3:"Plasma_Rifle", 4:"Rocket_launcher", 5:"Super_Shotgun", 6:"Ballista",  7:"Chaingun"}
     Eternal_Special_Weapons = {2: "Heavy_Cannon", 3:"Plasma_Rifle", 7:"Chaingun"}
+    random_weapon_number = random.randint(1, 7)
     
 
 
-    def __init__(self, weapon = 0, shooting_count = 0, shooting_time = 0):
-        random_weapon_number = random.randint(1, 7)
-        self.weapon = random_weapon_number
-        self.shooting_count = random_weapon_number
-        self.shooting_time = random_weapon_number
+    def __init__(self, weapon = random_weapon_number, shooting_count = random_weapon_number, shooting_time = random_weapon_number):
+        
+        self.__weapon = weapon
+        self.__shooting_count = shooting_count
+        self.__shooting_time = shooting_time
         
 
         
 
     def set_shooting_count(self, shooting_count):
 
-            if self.__weapon == 1:
-                print(self.__weapon)
+            if shooting_count == 1:
+                print(shooting_count)
                 shooting_count = 1
             
-            elif self.__weapon == 4:
-                print(self.__weapon)
+            elif shooting_count == 4:
+                print(shooting_count)
                 shooting_count = 11
 
-            elif self.__weapon == 5:
-                print(self.__weapon)
+            elif shooting_count == 5:
+                print(shooting_count)
                 shooting_count = 111
 
-            elif self.__weapon == 6:
-                print(self.__weapon)
+            elif shooting_count == 6:
+                print(shooting_count)
                 shooting_count = 1111
 
             
-            self.shooting_count = shooting_count
+            self.__shooting_count = shooting_count
 
 
     def get_shooting_count(self):
-            return self.shooting_count
+            return self.__shooting_count
 
 
 
@@ -88,16 +89,16 @@ class Eternal_Weapons_weaponized:
 
     def set_shooting_time(self, shooting_time):
 
-        if self.weapon == 2:
-            print(self.weapon)
+        if shooting_time == 2:
+            print(shooting_time)
             shooting_time = 3.5
         
-        elif self.weapon == 3:
-            print(self.weapon)
+        elif shooting_time == 3:
+            print(shooting_time)
             shooting_time = 6
 
-        elif self.weapon == 7:
-            print(self.weapon)
+        elif shooting_time == 7:
+            print(shooting_time)
             shooting_time = 9.5
         
         self.__shooting_time = shooting_time
@@ -105,7 +106,7 @@ class Eternal_Weapons_weaponized:
 
 
     def get_shooting_time(self):
-        return self.shooting_time
+        return self.__shooting_time
 
 
     
@@ -116,7 +117,7 @@ class Eternal_Weapons_weaponized:
 
     
     def __str__(self):
-        main_printins = str(self.weapon) + " shotgun blasttttt " + str(self.shooting_count) + "   Shotgungolongus   " +str(self.shooting_time)
+        main_printins = str(self.__weapon) + " shotgun blasttttt " + str(self.__shooting_count) + "   Shotgungolongus   " +str(self.__shooting_time)
         return main_printins
         
     
