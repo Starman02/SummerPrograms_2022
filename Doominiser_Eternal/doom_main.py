@@ -8,6 +8,7 @@ Made by StarMan02
 import random
 import re
 import sys
+from turtle import st
 
 
 standby = False
@@ -34,70 +35,100 @@ class= weapons_randomized
 
 """
 
+random_weapon_number = random.randint(1, 7)
 
 
-
-
-
-class Eternal_Weapons_weaponized:
-
-
-    Eternal_Weapons_Easy = {1:'Combat_shotgun', 2: "Heavy_Cannon", 3:"Plasma_Rifle", 4:"Rocket_launcher", 5:"Super_Shotgun", 6:"Ballista",  7:"Chaingun"}
-    Eternal_Special_Weapons = {2: "Heavy_Cannon", 3:"Plasma_Rifle", 7:"Chaingun"}
-    random_weapon_number = random.randint(1, 7)
-    
-
-
-    def __init__(self, weapon = random_weapon_number, shooting_count = random_weapon_number, shooting_time = random_weapon_number):
-        
-        self.__weapon = weapon
+class Eternal_Weapons_options:
+    def __init__(self, weapons = random_weapon_number, shooting_count = random_weapon_number , shooting_time = random_weapon_number):
+        self.__weapons = weapons
         self.__shooting_count = shooting_count
         self.__shooting_time = shooting_time
-        
 
-        
+    
+    def set_weapon(self, weapons):
+        self.__weapons = weapons
 
+    
     def set_shooting_count(self, shooting_count):
+        self.__shooting_count = shooting_count
 
-            if shooting_count == 1:
-                print(shooting_count)
-                shooting_count = 1
-            
-            elif shooting_count == 4:
-                print(shooting_count)
-                shooting_count = 11
+    
+    def set_shooting_time(self, shooting_time):
+        self.__shooting_time = shooting_time
 
-            elif shooting_count == 5:
-                print(shooting_count)
-                shooting_count = 111
 
-            elif shooting_count == 6:
-                print(shooting_count)
-                shooting_count = 1111
 
-            
-            Eternal_Weapons_weaponized.set_shooting_count(shooting_count)
+    def get_weapon(self):
+        return self.__weapons  
 
 
     def get_shooting_count(self):
-            return self.__shooting_count
+        return self.__shooting_count                               
 
 
+    def get_shooting_time(self):
+        return self.__shooting_time  
+
+
+
+
+
+
+
+
+
+class Active_weapons:
+
+    # call eternal weapons and randomize them here
+
+
+    # whatya looking at?
+
+
+
+
+    
+       
+
+
+
+
+
+
+
+
+    def set_shooting_count(self, shoot_counting):
+
+
+        if self.shooting_count == 1:
+            shoot_counting = 1
+            
+        elif self.shooting_count == 4:
+            shoot_counting = 11
+
+        elif self.shooting_count == 5:
+            shoot_counting = 111
+
+        elif self.shooting_count == 6:
+            shoot_counting = 1111
+    
     def set_shooting_time(self, shooting_time):
 
         if shooting_time == 2:
             print(shooting_time)
-            self.__shooting_time = 3.5
+            self.shooting_time = 3.5
         
         elif shooting_time == 3:
             print(shooting_time)
-            self.__shooting_time = 6
+            self.shooting_time = 6
 
         elif shooting_time == 7:
             print(shooting_time)
-            self.__shooting_time = 9.5
+            self.shooting_time = 9.5
 
-        Eternal_Weapons_weaponized.get_shooting_count()
+        
+        Eternal_Weapons.__setattr__(self, self.shoot_time, shooting_time)
+
 
         
 
@@ -106,19 +137,17 @@ class Eternal_Weapons_weaponized:
 
 
     def get_shooting_time(self):
-        return self.__shooting_time
+        return self.shooting_time
 
 
-    
-
-
-   
 
 
     
     def __str__(self):
-        main_printins = str(self.__weapon) + " shotgun blasttttt " + str(self.__shooting_count) + "   Shotgungolongus   " +str(self.__shooting_time)
-        return main_printins
+        gangsta = Eternal_Weapons()
+
+        main_printings = str(self.weapon) + " Weapon Count " + str(self.shoot_counting) + " Shooting Count " + str(self.shoot_time) + " Shooting Time"
+        return main_printings
         
     
 
@@ -130,7 +159,7 @@ class Eternal_Weapons_weaponized:
 
 
 
-my_squizzle = Eternal_Weapons_weaponized()
+my_squizzle = Eternal_Weapons()
 print(my_squizzle)
 
 
