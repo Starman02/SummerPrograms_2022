@@ -76,32 +76,32 @@ class Eternal_Weapons_weaponized:
                 shooting_count = 1111
 
             
-            self.__shooting_count = shooting_count
+            Eternal_Weapons_weaponized.set_shooting_count(shooting_count)
 
 
     def get_shooting_count(self):
             return self.__shooting_count
 
 
-
-
-
-
     def set_shooting_time(self, shooting_time):
 
         if shooting_time == 2:
             print(shooting_time)
-            shooting_time = 3.5
+            self.__shooting_time = 3.5
         
         elif shooting_time == 3:
             print(shooting_time)
-            shooting_time = 6
+            self.__shooting_time = 6
 
         elif shooting_time == 7:
             print(shooting_time)
-            shooting_time = 9.5
+            self.__shooting_time = 9.5
+
+        Eternal_Weapons_weaponized.get_shooting_count()
+
         
-        self.__shooting_time = shooting_time
+
+        
 
 
 
