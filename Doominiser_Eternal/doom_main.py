@@ -58,13 +58,8 @@ class Eternal_Weapons_options:
 
 
 
-<<<<<<< HEAD
-            
-            Eternal_Weapons_weaponized.set_shooting_count(shooting_count)
-=======
     def get_weapon(self):
         return self.__weapons  
->>>>>>> 6b6d14d96eef17d66135c23b514ae11d7306827f
 
 
     def get_shooting_count(self):
@@ -75,8 +70,6 @@ class Eternal_Weapons_options:
         return self.__shooting_time  
 
 
-<<<<<<< HEAD
-=======
 
 
 
@@ -119,24 +112,10 @@ class Active_weapons:
         elif self.shooting_count == 6:
             shoot_counting = 1111
     
->>>>>>> 6b6d14d96eef17d66135c23b514ae11d7306827f
     def set_shooting_time(self, shooting_time):
 
         if shooting_time == 2:
             print(shooting_time)
-<<<<<<< HEAD
-            self.__shooting_time = 3.5
-        
-        elif shooting_time == 3:
-            print(shooting_time)
-            self.__shooting_time = 6
-
-        elif shooting_time == 7:
-            print(shooting_time)
-            self.__shooting_time = 9.5
-
-        Eternal_Weapons_weaponized.get_shooting_count()
-=======
             self.shooting_time = 3.5
         
         elif shooting_time == 3:
@@ -150,7 +129,6 @@ class Active_weapons:
         
         Eternal_Weapons.__setattr__(self, self.shoot_time, shooting_time)
 
->>>>>>> 6b6d14d96eef17d66135c23b514ae11d7306827f
 
         
 
