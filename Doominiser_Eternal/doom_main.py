@@ -39,35 +39,35 @@ random_weapon_number = random.randint(1, 7)
 
 
 class Eternal_Weapons_options:
-    def __init__(self, weapons = random_weapon_number, shooting_count = random_weapon_number , shooting_time = random_weapon_number):
-        self.__weapons = weapons
-        self.__shooting_count = shooting_count
-        self.__shooting_time = shooting_time
+    def __init__(self, weapon_number = random_weapon_number, shooting_count_number = random_weapon_number , shooting_time_number = random_weapon_number):
+        self.__weapon_number = weapon_number
+        self.__shooting_count_number = shooting_count_number
+        self.__shooting_time_number = shooting_time_number
 
     
-    def set_weapon(self, weapons):
-        self.__weapons = weapons
+    def set_weapon(self, weapons_number):
+        self.__weapons_number = weapons_number
 
     
-    def set_shooting_count(self, shooting_count):
-        self.__shooting_count = shooting_count
+    def set_shooting_count(self, shooting_count_number):
+        self.__shooting_count_number = shooting_count_number
 
     
-    def set_shooting_time(self, shooting_time):
-        self.__shooting_time = shooting_time
+    def set_shooting_time(self, shooting_time_number):
+        self.__shooting_time_number = shooting_time_number
 
 
 
     def get_weapon(self):
-        return self.__weapons  
+        return self.__weapons_number  
 
 
     def get_shooting_count(self):
-        return self.__shooting_count                               
+        return self.__shooting_count_number                               
 
 
     def get_shooting_time(self):
-        return self.__shooting_time  
+        return self.__shooting_time_number  
 
 
 
@@ -78,6 +78,17 @@ class Eternal_Weapons_options:
 
 
 class Active_weapons:
+        def __init__(self, weapon = random_weapon_number, shooting_count = random_weapon_number , shooting_time = random_weapon_number):
+            self.__weapon = weapon
+            self.__shooting_count = shooting_count
+            self.__shooting_time = shooting_time
+
+
+
+            
+
+
+
 
     # call eternal weapons and randomize them here
 
