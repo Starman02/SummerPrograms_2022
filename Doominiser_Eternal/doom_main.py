@@ -8,8 +8,7 @@ Made by StarMan02
 import random
 import re
 import sys
-from this import d
-from turtle import st
+
 
 
 standby = False
@@ -39,32 +38,61 @@ class= weapons_randomized
 random_weapon_number = random.randint(1, 7)
 
 
-class Eternal_Weapons_options:
+# class Eternal_Weapons_options:
 
-    def __init__(self, weapon_number, shooting_count, shooting_time_number):
-        self.weapon_number = random_weapon_number
-        self.shooting_count_number = random_weapon_number
-        self.shooting_time_number = random_weapon_number
+#     def __init__(self, weapon_number, shooting_count_number, shooting_time_number):
+#         self.weapon_number = weapon_number
+#         self.shooting_count_number = shooting_count_number
+#         self.shooting_time_number = shooting_time_number
 
 
 
-    def __str__(self):
-        main_printings = str(self.__weapon_number) + " Weapon Count " + str(self.__shooting_count_number) + " Shooting Count " + str(self.__shooting_time_number) + " Shooting Time"
-        return main_printings
+#     def __str__(self):
+#         main_printings = str(self.weapon_number) + " Weapon Count " + str(self.shooting_count_number) + " Shooting Count " + str(self.shooting_time_number) + " Shooting Time"
+#         return main_printings
 
 
 
 
 class Active_weapons_switcher(Eternal_Weapons_options):
-    Eternal_Weapons_options.__init__(self)
+    Eternal_Weapons_options.__init__(self, weapon_number, shooting_count_number, shooting_time_number)
     def __init__(self, weapon, shooting_count, shooting_time):
         self.weapon = weapon
         self.shooting_count = shooting_count
         self.shooting_time = shooting_time
 
 
-    def change_counting_time(self):
-        counting_number = self.shooting_count
+    def change_shooting_time(self):
+        
+        if self.shooting_time == 2:
+            self.shooting_time = 3.5
+        
+        elif self.shooting_time == 3:
+            self.shooting_time = 6
+
+        elif self.shooting_time == 7:
+            self.shooting_time = 9.5
+
+        return self.shooting_time
+
+
+    
+    def change_shooting_count(self):
+
+        if self.shooting_count == 1:
+            shoot_counting = 1
+            
+        elif self.shooting_count == 4:
+            shoot_counting = 11
+
+        elif self.shooting_count == 5:
+            shoot_counting = 111
+
+        elif self.shooting_count == 6:
+            shoot_counting = 1111
+    
+
+
         
 
 
@@ -75,8 +103,19 @@ class Active_weapons_switcher(Eternal_Weapons_options):
 
 
 
+# gives the sorter a random number
 weapons_number = Active_weapons_switcher(random_weapon_number, random_weapon_number, random_weapon_number)
-randomize = weapons_number.change_counting_time()
+
+
+
+randomize = weapons_number.change_shooting_time()
+randomize_shooting_count = weapons_number.change_shooting_count()
+
+
+
+
+print(str(randomize))
+print(str(randomize_shooting_count))
 
         
 
@@ -108,17 +147,6 @@ randomize = weapons_number.change_counting_time()
             
 
             
-
-
-
-
-
-        def __str__(self):
-                gangsta = Active_weapons()
-                
-
-                main_printings = str(self.__weapon) + " Weapon Count happy " + str(self.__shooting_count) + " Shooting Count happy " + str(self.__shooting_time) + " Shooting Time hoipy"
-                return main_printings
 
 
 
@@ -205,10 +233,9 @@ randomize = weapons_number.change_counting_time()
 
 
 
-my_squizzle = Eternal_Weapons_options()
-my_squizzle_nizzle = Active_weapons()
+my_squizzle = Eternal_Weapons_options(random_weapon_number, random_weapon_number, random_weapon_number)
+
 print(my_squizzle)
-print(my_squizzle_nizzle)
 
 
 
