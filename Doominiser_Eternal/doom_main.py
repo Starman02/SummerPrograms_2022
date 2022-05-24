@@ -41,7 +41,7 @@ random_weapon_number = random.randint(1, 7)
 
 class Eternal_Weapons_options:
 
-    def __init__(self):
+    def __init__(self, weapon_number, shooting_count, shooting_time_number):
         self.weapon_number = random_weapon_number
         self.shooting_count_number = random_weapon_number
         self.shooting_time_number = random_weapon_number
@@ -56,17 +56,29 @@ class Eternal_Weapons_options:
 
 
 class Active_weapons_switcher(Eternal_Weapons_options):
-    def __init__(self, weapon, shooting_c):
-        self.weapon = 0
-        self.shooting_count = 0
-        self.shooting_time = 0
+    Eternal_Weapons_options.__init__(self)
+    def __init__(self, weapon, shooting_count, shooting_time):
+        self.weapon = weapon
+        self.shooting_count = shooting_count
+        self.shooting_time = shooting_time
+
+
+    def change_counting_time(self):
+        counting_number = self.shooting_count
+        
 
 
 
 
-    def change_weapons(self):
 
-        change
+
+
+
+
+weapons_number = Active_weapons_switcher(random_weapon_number, random_weapon_number, random_weapon_number)
+randomize = weapons_number.change_counting_time()
+
+        
 
 
 
