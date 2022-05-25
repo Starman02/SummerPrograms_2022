@@ -6,50 +6,6 @@ Made by StarMan02
 
 
 import random
-import sys
-
-
-
-standby = False
-
-"""
-
-class= weapons_randomized
-    init-
-        Weapon
-        Shooting_count
-        Shootin_time
-
-
-        ######
-    setters
-    get_Weapons
-    set_shooting_count
-    set_shooting_time
-
-    get_shooting_count
-    get_shooting_timeSAVED
-
-
-
-"""
-
-random_weapon_number = random.randint(1, 7)
-
-
-# class Eternal_Weapons_options:
-
-#     def __init__(self, weapon_number, shooting_count_number, shooting_time_number):
-#         self.weapon_number = weapon_number
-#         self.shooting_count_number = shooting_count_number
-#         self.shooting_time_number = shooting_time_number
-
-
-
-#     def __str__(self):
-#         main_printings = str(self.weapon_number) + " Weapon Count " + str(self.shooting_count_number) + " Shooting Count " + str(self.shooting_time_number) + " Shooting Time"
-#         return main_printings
-
 
 def random_number_generator():
     random_weapon_number = random.randint(1, 7)
@@ -99,11 +55,8 @@ class Active_weapons_switcher:
         return self.shooting_count
 
 
-
     def get_weapon_number(self):
         return self.weapon
-
-
 
     def get_shooting_time(self):
         return self.shooting_time
@@ -133,32 +86,15 @@ class Active_weapons_switcher:
 # gives the sorter a random number
 # will be moved into main function
 
+
+# assigns random numbers into the generator
+# should probobly put them in a function
 random_weapon_number_generated = random_number_generator()
 weapons_number = Active_weapons_switcher(random_weapon_number_generated, random_weapon_number_generated, random_weapon_number_generated)
 
+
+# these just print the numbers to be generated
 print( "and so the main weapon number is: " + str(weapons_number.get_weapon_number()))
 print( "the count number is: " + str(weapons_number.change_shooting_count()))
 print( "the time number is: " + str(weapons_number.change_shooting_time()))
-
-
-
-
-
-
-
-
-# def start_randomized_mode():
-#     standby = True
-
-#     while standby == True:
-#         # programs logic to click and swap
-
-
-
-
-
-
-
-# start_game()
-
     
