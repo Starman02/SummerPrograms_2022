@@ -51,6 +51,13 @@ random_weapon_number = random.randint(1, 7)
 #         return main_printings
 
 
+def random_number_generator():
+    random_weapon_number = random.randint(1, 7)
+
+    return random_weapon_number
+
+
+
 
 
 class Active_weapons_switcher:
@@ -58,10 +65,12 @@ class Active_weapons_switcher:
         self.weapon = weapon
         self.shooting_count = shooting_count
         self.shooting_time = shooting_time
+        self.__random_number_generator = None
 
 
-    def change_shooting_time(self):
-        
+    # thats called motha fuckin bars
+
+    def change_shooting_time(self):  
         if self.shooting_time == 2:
             self.shooting_time = 3.5
         
@@ -73,23 +82,36 @@ class Active_weapons_switcher:
 
         return self.shooting_time
 
-
     
     def change_shooting_count(self):
-
-        if self.shooting_count == 1:
-            self.shoot_counting = 1
+        if self.shooting_time == 1:
+            self.shooting_time = 1
             
         elif self.shooting_count == 4:
-            self.shoot_counting = 11
+            self.shooting_count = 111
 
         elif self.shooting_count == 5:
-            self.shoot_counting = 111
+            self.shooting_time = 111
 
         elif self.shooting_count == 6:
-            self.shoot_counting = 1111
+            self.shooting_count = 1111
 
-    
+        return self.shooting_count
+
+
+
+    def get_weapon_number(self):
+        return self.weapon
+
+
+
+    def get_shooting_time(self):
+        return self.shooting_time
+
+
+    def get_shooting_count(self):
+        return self.shooting_count
+
     def __str__(self):
         main_printings = str(self.weapon) + " Weapon selection " + str(self.shooting_count) + " weapon Shooting Count " + str(self.shooting_time) + " weapon Shooting Time"
         return main_printings
@@ -111,19 +133,16 @@ class Active_weapons_switcher:
 # gives the sorter a random number
 # will be moved into main function
 
-weapons_number = Active_weapons_switcher(random_weapon_number, random_weapon_number, random_weapon_number)
-randomize = weapons_number.change_shooting_time()
-randomize_shooting_count = weapons_number.change_shooting_count()
+random_weapon_number_generated = random_number_generator()
+weapons_number = Active_weapons_switcher(random_weapon_number_generated, random_weapon_number_generated, random_weapon_number_generated)
+
+print( "and so the main weapon number is: " + str(weapons_number.get_weapon_number()))
+print( "the count number is: " + str(weapons_number.change_shooting_count()))
+print( "the time number is: " + str(weapons_number.change_shooting_time()))
 
 
 
 
-print(str(weapons_number))
-print(str(randomize_shooting_count))
-print(str(randomize))
-
-
-        
 
 
 
