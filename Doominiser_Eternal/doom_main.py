@@ -6,9 +6,8 @@ Made by StarMan02
 
 
 import random
-import re
 import sys
-from turtle import st
+
 
 
 standby = False
@@ -38,191 +37,93 @@ class= weapons_randomized
 random_weapon_number = random.randint(1, 7)
 
 
-class Eternal_Weapons_options:
-    def __init__(self, weapon_number = random_weapon_number, shooting_count_number = random_weapon_number , shooting_time_number = random_weapon_number):
-        self.__weapon_number = weapon_number
-        self.__shooting_count_number = shooting_count_number
-        self.__shooting_time_number = shooting_time_number
+# class Eternal_Weapons_options:
 
-    
-    def set_weapon(self, weapons_number):
-        self.__weapons_number = weapons_number
-
-    
-    def set_shooting_count(self, shooting_count_number):
-        self.__shooting_count_number = shooting_count_number
-
-    
-    def set_shooting_time(self, shooting_time_number):
-        self.__shooting_time_number = shooting_time_number
+#     def __init__(self, weapon_number, shooting_count_number, shooting_time_number):
+#         self.weapon_number = weapon_number
+#         self.shooting_count_number = shooting_count_number
+#         self.shooting_time_number = shooting_time_number
 
 
 
-    def get_weapon(self):
-        return self.__weapons_number  
-
-
-    def get_shooting_count(self):
-        return self.__shooting_count_number                               
-
-
-    def get_shooting_time(self):
-        return self.__shooting_time_number  
+#     def __str__(self):
+#         main_printings = str(self.weapon_number) + " Weapon Count " + str(self.shooting_count_number) + " Shooting Count " + str(self.shooting_time_number) + " Shooting Time"
+#         return main_printings
 
 
 
 
+class Active_weapons_switcher:
+    def __init__(self, weapon, shooting_count, shooting_time):
+        self.weapon = weapon
+        self.shooting_count = shooting_count
+        self.shooting_time = shooting_time
 
 
-
-
-
-class Active_weapons:
-        def __init__(self, weapon = random_weapon_number, shooting_count = random_weapon_number , shooting_time = random_weapon_number):
-            self.__weapon = weapon
-            self.__shooting_count = shooting_count
-            self.__shooting_time = shooting_time
-
-
-
-            
-
-
-
-
-    # call eternal weapons and randomize them here
-
-
-    # whatya looking at?
-
-
-
-
-    
-       
-
-
-
-
-
-
-
-
-    def set_shooting_count(self, shoot_counting):
-
-
-        if self.shooting_count == 1:
-            shoot_counting = 1
-            
-        elif self.shooting_count == 4:
-            shoot_counting = 11
-
-        elif self.shooting_count == 5:
-            shoot_counting = 111
-
-        elif self.shooting_count == 6:
-            shoot_counting = 1111
-    
-    def set_shooting_time(self, shooting_time):
-
-        if shooting_time == 2:
-            print(shooting_time)
+    def change_shooting_time(self):
+        
+        if self.shooting_time == 2:
             self.shooting_time = 3.5
         
-        elif shooting_time == 3:
-            print(shooting_time)
+        elif self.shooting_time == 3:
             self.shooting_time = 6
 
-        elif shooting_time == 7:
-            print(shooting_time)
+        elif self.shooting_time == 7:
             self.shooting_time = 9.5
 
-        
-        Eternal_Weapons.__setattr__(self, self.shoot_time, shooting_time)
-
-
-        
-
-        
-
-
-
-    def get_shooting_time(self):
         return self.shooting_time
 
 
+    
+    def change_shooting_count(self):
 
+        if self.shooting_count == 1:
+            self.shoot_counting = 1
+            
+        elif self.shooting_count == 4:
+            self.shoot_counting = 11
+
+        elif self.shooting_count == 5:
+            self.shoot_counting = 111
+
+        elif self.shooting_count == 6:
+            self.shoot_counting = 1111
 
     
     def __str__(self):
-        gangsta = Eternal_Weapons()
-
-        main_printings = str(self.weapon) + " Weapon Count " + str(self.shoot_counting) + " Shooting Count " + str(self.shoot_time) + " Shooting Time"
+        main_printings = str(self.weapon) + " Weapon selection " + str(self.shooting_count) + " weapon Shooting Count " + str(self.shooting_time) + " weapon Shooting Time"
         return main_printings
         
     
-
-
-
-
     
 
 
-
-
-my_squizzle = Eternal_Weapons()
-print(my_squizzle)
+        
 
 
 
 
 
 
+
+
+
+# gives the sorter a random number
+# will be moved into main function
+
+weapons_number = Active_weapons_switcher(random_weapon_number, random_weapon_number, random_weapon_number)
+randomize = weapons_number.change_shooting_time()
+randomize_shooting_count = weapons_number.change_shooting_count()
+
+
+
+
+print(str(weapons_number))
+print(str(randomize_shooting_count))
+print(str(randomize))
 
 
         
-        
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
