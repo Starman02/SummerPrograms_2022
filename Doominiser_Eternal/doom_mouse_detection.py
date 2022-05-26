@@ -30,29 +30,28 @@ clicked = False
 # except KeyboardInterrupt:
 #     print('\n')
 print("chink")
-class Clickin:
 
 
-    def on_move(x, y):
-        pass
+def on_move(x, y):
+    pass
 
 
-    def on_scroll(x, y, dx, dy):
-        pass
+def on_scroll(x, y, dx, dy):
+    pass
 
 
 
-    def on_click(x, y, button, pressed):
-        clicked = True
-        return clicked
+def on_click(x, y, button, pressed):
+    clicked = True
+    return clicked
 
     
-    with Listener(on_move=on_move,on_click=on_click,on_scroll=on_scroll) as listener:
+with Listener(on_move=on_move,on_click=on_click,on_scroll=on_scroll) as listener:
         listener.join()
 
 
 
-chicken = Clickin()
+
 while standby == False:
 
     if clicked == True:
