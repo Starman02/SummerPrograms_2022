@@ -6,22 +6,43 @@ when in standbymode, weapon switching will occur.
 
 """
 
+from unittest import skip
 from doom_main import *
 import pyautogui
+from pynput.mouse import Listener
+
 import pygame 
 import sys
 
 
-try:
-    while True:
-        x, y = pyautogui.position()
-        positionStr = 'X: ' + str(x).rjust(4) + ' Y: ' + str(y).rjust(4)
-        print(positionStr, end='')
-        print('\b' * len(positionStr), end='', flush=True)
-except KeyboardInterrupt:
-    print('\n')
+# try:
+#     while True:
+#         x, y = pyautogui.position()
+#         positionStr = 'X: ' + str(x).rjust(4) + ' Y: ' + str(y).rjust(4)
+#         print(positionStr, end='')
+#         print('\b' * len(positionStr), end='', flush=True)
+# except KeyboardInterrupt:
+#     print('\n')
 
 
+
+
+def on_move(x, y):
+    pass
+
+
+def on_scroll(x, y, dx, dy):
+    pass
+
+
+
+def on_click(x, y, button, pressed):
+    print("oh holy jebus")
+
+
+
+with Listener(on_move=on_move,on_click=on_click,on_scroll=on_scroll) as listener:
+    listener.join()
 
 
     
