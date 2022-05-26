@@ -19,17 +19,25 @@ class Active_weapons_switcher:
         self.shooting_time = shooting_time
 
 
+
+    def random_number_generator():
+        random_weapon_number = random.randint(1, 7)
+
+        return random_weapon_number
+
+
+
     def change_shooting_time(self):  
 
-        temporary = self.shooting_count
+        temporary = Active_weapons_switcher.random_number_generator()
 
-        if temporary == 2:
+        if self.shooting_time == 2:
             self.shooting_time = 3.5
         
-        elif temporary == 3:
+        elif self.shooting_time == 3:
             self.shooting_time = 6
 
-        elif temporary == 7:
+        elif self.shooting_time == 7:
             self.shooting_time = 9.5
 
         
@@ -39,28 +47,31 @@ class Active_weapons_switcher:
     
     def change_shooting_count(self):
 
-        temporary = self.shooting_count
-
-        if temporary == 1:
+        if self.shooting_count == 1:
             self.shooting_count = 1
             
-        elif temporary == 4:
+        elif self.shooting_count == 4:
             self.shooting_count = 11
 
-        elif temporary == 5:
+        elif self.shooting_count == 5:
             self.shooting_count = 111
 
-        elif temporary == 6:
+        elif self.shooting_count == 6:
             self.shooting_count = 1111
 
         return self.shooting_count
 
 
     def get_weapon_number(self):
+        temporary = Active_weapons_switcher.random_number_generator()
+        self.weapon = temporary
+
         return self.weapon
 
 
     def get_weapon_name(self):
+
+  
 
         if self.weapon == 1:
             self.weapon = "Combat Shotgun"
@@ -91,18 +102,9 @@ class Active_weapons_switcher:
         main_printings = str(self.weapon) + " Weapon selection " + str(self.shooting_count) + " weapon Shooting Count " + str(self.shooting_time) + " weapon Shooting Time"
         return main_printings
 
-    def random_number_generator():
-        random_weapon_number = random.randint(1, 7)
-
-        return random_weapon_number
 
 
 
-
-
-
-random_weapon_number_generated = Active_weapons_switcher.random_number_generator()
-weapons_number = Active_weapons_switcher(random_weapon_number_generated, random_weapon_number_generated, random_weapon_number_generated)
 
 
 
@@ -117,8 +119,8 @@ weapons_number = Active_weapons_switcher(random_weapon_number_generated, random_
 
 print("poverty")
 
-# these just print the numbers to be generated
-print( "and so the main weapon number is: " + str(weapons_number.get_weapon_name()))
-print( "the count number is: " + str(weapons_number.change_shooting_count()))
-print( "the time number is: " + str(weapons_number.change_shooting_time()))
+# # these just print the numbers to be generated
+# print( "and so the main weapon number is: " + str(weapons_number.get_weapon_name()))
+# print( "the count number is: " + str(weapons_number.change_shooting_count()))
+# print( "the time number is: " + str(weapons_number.change_shooting_time()))
     

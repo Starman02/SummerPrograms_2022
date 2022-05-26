@@ -7,6 +7,7 @@ when in standbymode, weapon switching will occur.
 """
 
 
+
 from doom_main import *
 from pynput.mouse import Listener
 
@@ -14,10 +15,11 @@ import pygame
 import sys
 
 
+random_weapon_number_generated = Active_weapons_switcher.random_number_generator()
+weapons_number = Active_weapons_switcher(random_weapon_number_generated, random_weapon_number_generated, random_weapon_number_generated)
+        
 
 
-
-standby = True
 clickCount = 0
 clicked = False
 
@@ -32,47 +34,50 @@ clicked = False
 print("chink")
 
 
-def on_move(x, y):
-    pass
+standby = True
+
+while standby == True:
+
+    def on_move(x, y):
+        pass
 
 
-def on_scroll(x, y, dx, dy):
-    pass
+    def on_scroll(x, y, dx, dy):
+        pass
 
 
 
-def on_click(x, y, button, pressed):
-    clicked = True
-    return clicked
+    def on_click(x, y, button, pressed):
+        random_weapon_number_generated = Active_weapons_switcher.random_number_generator()
+        weapons_number = Active_weapons_switcher(random_weapon_number_generated, random_weapon_number_generated, random_weapon_number_generated)
+        print(("______")*10)
+        print( "and so the main weapon number is: " + str(weapons_number.get_weapon_name()))
+        print( "the count number is: " + str(weapons_number.change_shooting_count()))
+        print( "the time number is: " + str(weapons_number.change_shooting_time()))
+        print(("______")*10)
+    
+    
+
+    with Listener(on_move=on_move,on_click=on_click,on_scroll=on_scroll) as listener:
+        listener.join()
+
+    
+
+    
+
+
+
+    
+
+
+
+
+
+    
+
+
+
 
     
 with Listener(on_move=on_move,on_click=on_click,on_scroll=on_scroll) as listener:
         listener.join()
-
-
-
-
-while standby == False:
-
-    if clicked == True:
-        print("Cumbony blast")
-        clicked = False
-    else:
-        pass
-    
-
-    
-
-
-
-    
-
-
-
-
-
-    
-
-
-
-
