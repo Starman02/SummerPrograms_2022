@@ -14,6 +14,13 @@ import pygame
 import sys
 
 
+
+
+
+standby = True
+clickCount = 0
+clicked = False
+
 # try:
 #     while True:
 #         x, y = pyautogui.position()
@@ -22,7 +29,7 @@ import sys
 #         print('\b' * len(positionStr), end='', flush=True)
 # except KeyboardInterrupt:
 #     print('\n')
-
+print("chink")
 class Clickin:
 
 
@@ -45,12 +52,8 @@ class Clickin:
 
 
 
-
-standby = False
-clickCount = 0
-clicked = False
-
-while standby == True:
+chicken = Clickin()
+while standby == False:
 
     if clicked == True:
         print("Cumbony blast")
