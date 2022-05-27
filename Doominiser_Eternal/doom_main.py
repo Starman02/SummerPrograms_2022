@@ -27,15 +27,13 @@ class Active_weapons_switcher:
 
 
 
-    def change_shooting_time(self):  
-
-        temporary = Active_weapons_switcher.random_number_generator()
+    def change_shooting_time(self):
 
         if self.shooting_time == 2:
             self.shooting_time = 3.5
         
         elif self.shooting_time == 3:
-            self.shooting_time = 6
+            self.shooting_time = 4.89
 
         elif self.shooting_time == 7:
             self.shooting_time = 9.5
@@ -63,8 +61,6 @@ class Active_weapons_switcher:
 
 
     def get_weapon_number(self):
-        temporary = Active_weapons_switcher.random_number_generator()
-        self.weapon = temporary
 
         return self.weapon
 
