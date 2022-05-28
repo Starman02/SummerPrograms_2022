@@ -19,6 +19,8 @@ import sys
 
 random_weapon_number_generated = Active_weapons_switcher.random_number_generator()
 weapons_number = Active_weapons_switcher(random_weapon_number_generated, random_weapon_number_generated, random_weapon_number_generated)
+
+
         
 
 
@@ -41,7 +43,7 @@ standby = True
 
 class Farty:
 
-    click = 0
+
 
     while standby == True:
 
@@ -55,24 +57,27 @@ class Farty:
 
 
 
-        def on_click(x, y, button, pressed):
-            print('{0} at {1}'.format(
-                'Pressed' if pressed else 'Released',
-                (x, y)))
-            if not pressed:
-                # Stop listener
-                return False
+        def on_click(self, x, y, button, pressed):
 
-
-        def on_click(x, y, button, pressed):
+            self.time_pressed
+            event_time = time()
 
             if pressed == True:
+
+                self.time_pressed = event_time
+                print(event_time)
+                
+
 
 
                 random_weapon_number_generated = Active_weapons_switcher.random_number_generator()
                 weapons_number = Active_weapons_switcher(random_weapon_number_generated, random_weapon_number_generated, random_weapon_number_generated)
 
+
                 if weapons_number.get_weapon_number() == 2:
+
+
+
                     
                     print( "and so the main weapon number is: " + str(weapons_number.change_shooting_time()))
 
@@ -82,7 +87,6 @@ class Farty:
                 if weapons_number.get_weapon_number() == 7:
                     print( "and so the main weapon number is: " + str(weapons_number.change_shooting_time()))
 
-                print(("______")*10)
             else:
                 pass  
 
