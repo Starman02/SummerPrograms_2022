@@ -8,15 +8,19 @@ when in standbymode, weapon switching will occur.
 
 
 
+from multiprocessing.connection import wait
+from tkinter import Button
 from doom_main import *
 from pynput.mouse import Listener
+import time
 
-import pygame 
 import sys
 
 
 random_weapon_number_generated = Active_weapons_switcher.random_number_generator()
 weapons_number = Active_weapons_switcher(random_weapon_number_generated, random_weapon_number_generated, random_weapon_number_generated)
+
+
         
 
 
@@ -39,7 +43,7 @@ standby = True
 
 class Farty:
 
-    click = 0
+
 
     while standby == True:
 
@@ -52,24 +56,43 @@ class Farty:
 
 
 
-        def on_click(x, y, button, pressed):
 
-            print(str(x),str(y),str(button),str(pressed))
+        def on_click(self, x, y, button, pressed):
 
-            if button == True:
+            self.time_pressed
+            event_time = time()
+
+            if pressed == True:
+
+                self.time_pressed = event_time
+                print(event_time)
+                
+
+
+
+                random_weapon_number_generated = Active_weapons_switcher.random_number_generator()
+                weapons_number = Active_weapons_switcher(random_weapon_number_generated, random_weapon_number_generated, random_weapon_number_generated)
+
+
+                if weapons_number.get_weapon_number() == 2:
+
+
+
+                    
+                    print( "and so the main weapon number is: " + str(weapons_number.change_shooting_time()))
+
+                if weapons_number.get_weapon_number() == 3:
+                    print( "and so the main weapon number is: " + str(weapons_number.change_shooting_time()))
+
+                if weapons_number.get_weapon_number() == 7:
+                    print( "and so the main weapon number is: " + str(weapons_number.change_shooting_time()))
+
+            else:
+                pass  
+
 
 
     
-                random_weapon_number_generated = Active_weapons_switcher.random_number_generator()
-                weapons_number = Active_weapons_switcher(random_weapon_number_generated, random_weapon_number_generated, random_weapon_number_generated)
-                print(("______")*10)
-                print( "and so the main weapon number is: " + str(weapons_number.get_weapon_name()))
-                print( "the count number is: " + str(weapons_number.change_shooting_count()))
-                print( "the time number is: " + str(weapons_number.change_shooting_time()))
-                print(("______")*10)
-                o = 0
-        
-        
 
         with Listener(on_move=on_move,on_click=on_click,on_scroll=on_scroll) as listener:
             listener.join()
@@ -78,15 +101,6 @@ class Farty:
 
     
 
-
-
-    
-
-
-
-
-
-    
 
 
 
