@@ -45,29 +45,28 @@ class Active_weapons_switcher:
     
     def change_shooting_count(self):
 
-        if self.shooting_count == 1:
+        temporary = self.shooting_count
+
+        if temporary == 1:
             self.shooting_count = 1
             
-        elif self.shooting_count == 4:
+        elif temporary == 4:
             self.shooting_count = 11
 
-        elif self.shooting_count == 5:
+        elif temporary == 5:
             self.shooting_count = 111
 
-        elif self.shooting_count == 6:
+        elif temporary == 6:
             self.shooting_count = 1111
 
         return self.shooting_count
 
 
     def get_weapon_number(self):
-
         return self.weapon
 
 
     def get_weapon_name(self):
-
-  
 
         if self.weapon == 1:
             self.weapon = "Combat Shotgun"
@@ -98,9 +97,18 @@ class Active_weapons_switcher:
         main_printings = str(self.weapon) + " Weapon selection " + str(self.shooting_count) + " weapon Shooting Count " + str(self.shooting_time) + " weapon Shooting Time"
         return main_printings
 
+    def random_number_generator():
+        random_weapon_number = random.randint(1, 7)
+
+        return random_weapon_number
 
 
 
+
+
+
+random_weapon_number_generated = Active_weapons_switcher.random_number_generator()
+weapons_number = Active_weapons_switcher(random_weapon_number_generated, random_weapon_number_generated, random_weapon_number_generated)
 
 
 
@@ -115,8 +123,8 @@ class Active_weapons_switcher:
 
 print("poverty")
 
-# # these just print the numbers to be generated
-# print( "and so the main weapon number is: " + str(weapons_number.get_weapon_name()))
-# print( "the count number is: " + str(weapons_number.change_shooting_count()))
-# print( "the time number is: " + str(weapons_number.change_shooting_time()))
+# these just print the numbers to be generated
+print( "and so the main weapon number is: " + str(weapons_number.get_weapon_name()))
+print( "the count number is: " + str(weapons_number.change_shooting_count()))
+print( "the time number is: " + str(weapons_number.change_shooting_time()))
     
