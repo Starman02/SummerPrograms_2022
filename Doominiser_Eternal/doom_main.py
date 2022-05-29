@@ -13,10 +13,9 @@ import random
 
 
 class Active_weapons_switcher:
-    def __init__(self, weapon, shooting_count, shooting_time):
+    def __init__(self, weapon, shooting_count):
         self.weapon = weapon
         self.shooting_count = shooting_count
-        self.shooting_time = shooting_time
 
 
 
@@ -27,22 +26,7 @@ class Active_weapons_switcher:
 
 
 
-    def change_shooting_time(self):
 
-        if self.shooting_time == 2:
-            self.shooting_time = 3.5
-        
-        elif self.shooting_time == 3:
-            self.shooting_time = 4.89
-
-        elif self.shooting_time == 7:
-            self.shooting_time = 9.5
-
-        
-
-        return self.shooting_time
-
-    
     def change_shooting_count(self):
 
         if self.shooting_count == 1:
@@ -57,6 +41,8 @@ class Active_weapons_switcher:
         elif self.shooting_count == 6:
             self.shooting_count = 1111
 
+
+    def get_shooting_count(self):
         return self.shooting_count
 
 
