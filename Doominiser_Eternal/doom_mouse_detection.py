@@ -7,6 +7,9 @@ when in standbymode, weapon switching will occur.
 """
 
 
+
+from multiprocessing.connection import wait
+from tkinter import Button
 from doom_main import *
 from pynput.mouse import Listener
 import time
@@ -14,11 +17,13 @@ import time
 import sys
 
 
+random_weapon_number_generated = Active_weapons_switcher.random_number_generator()
+weapons_number = Active_weapons_switcher(random_weapon_number_generated, random_weapon_number_generated, random_weapon_number_generated)
 
 
+        
 
-standby = True
-clickCount = 0
+
 clicked = False
 
 # try:
