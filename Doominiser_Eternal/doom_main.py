@@ -13,9 +13,8 @@ import random
 
 
 class Active_weapons_switcher:
-    def __init__(self, weapon, shooting_count):
+    def __init__(self, weapon):
         self.weapon = weapon
-        self.shooting_count = shooting_count
 
 
 
@@ -26,59 +25,43 @@ class Active_weapons_switcher:
 
 
 
-
-    def change_shooting_count(self):
+    def change_shooting_key(self):
 
         if self.shooting_count == 1:
             self.shooting_count = 1
             
         elif self.shooting_count == 4:
-            self.shooting_count = 11
+            self.shooting_count = 4
 
         elif self.shooting_count == 5:
-            self.shooting_count = 111
+            self.shooting_count = 5
 
         elif self.shooting_count == 6:
-            self.shooting_count = 1111
+            self.shooting_count = 6
 
 
-    def get_shooting_count(self):
-        return self.shooting_count
 
 
-    def get_weapon_number(self):
 
-        return self.weapon
+    def get_weapon_key(self):
 
-
-    def get_weapon_name(self):
-
-  
-
-        if self.weapon == 1:
-            self.weapon = "Combat Shotgun"
-        elif self.weapon == 2:
-            self.weapon = "Heavy Cannon"
-        elif self.weapon == 3:
-            self.weapon = "Plasma Rifle"
-        elif self.weapon == 4:
-            self.weapon = "Rocket Launcher"
-        elif self.weapon == 5:
-            self.weapon = "Super Shotgun"
-        elif self.weapon == 6:
-            self.weapon = "Ballista"
-        elif self.weapon == 7:
-            self.weapon = "Chaingun" 
+        # if self.weapon == 1:
+        #     self.weapon = 1
+        # elif self.weapon == 2:
+        #     self.weapon = 2
+        # elif self.weapon == 3:
+        #     self.weapon = 3
+        # elif self.weapon == 4:
+        #     self.weapon = 4
+        # elif self.weapon == 5:
+        #     self.weapon = 5
+        # elif self.weapon == 6:
+        #     self.weapon = 6
+        # elif self.weapon == 7:
+        #     self.weapon = 7
 
         return self.weapon
 
-
-    def get_shooting_time(self):
-        return self.shooting_time
-
-
-    def get_shooting_count(self):
-        return self.shooting_count
 
     def __str__(self):
         main_printings = str(self.weapon) + " Weapon selection " + str(self.shooting_count) + " weapon Shooting Count " + str(self.shooting_time) + " weapon Shooting Time"

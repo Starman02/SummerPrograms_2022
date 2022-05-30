@@ -12,6 +12,7 @@ when in standbymode, weapon switching will occur.
 
 
 
+from ast import keyword
 from doom_main import *
 from pynput.mouse import Listener
 from pynput.keyboard import Key,Controller
@@ -20,8 +21,7 @@ import win32api
 import sys
 
 
-random_weapon_number_generated = Active_weapons_switcher.random_number_generator()
-weapons_number = Active_weapons_switcher(random_weapon_number_generated, random_weapon_number_generated)
+
 
 
         
@@ -38,20 +38,30 @@ standby = True
 
 
 
-class Farty:
+class Simulate_clicks:
+
+    
+
+    random_weapon_number_generated = Active_weapons_switcher.random_number_generator()        
+    i = Active_weapons_switcher(random_weapon_number_generated)
+        
 
     keyboard = Controller()
+
+
 
 
     state_left = win32api.GetKeyState(0x01)
     shot = 0
 
 
+ 
 
-
+    
     while standby == True:
         
         shoot = win32api.GetKeyState(0x01)
+
 
 
 
@@ -60,53 +70,29 @@ class Farty:
             print(shoot)
             if shoot < 0:
                 shot += 1
-                print(shot)
-
-                time.sleep(2)
-
-                keyboard.press("1")
-                keyboard.release("1")
+                print("shot count is: " + str(shot))
+                print("weapon is: " + str(i.get_weapon_key))
 
 
-                #if shot == weapons_number.get_weapon_number():
+                time.sleep(3)
+                i.random_number_generator
 
-
-                    #win32api.keybd_event(0x35)
+                print("new number is: "+ str(i.get_weapon_key))
+     
+        
 
 
 
 
-                 
-            else:
-                print('left button released')
+             
 
 
-
-
-
-
-
-
-                # if weapons_number.get_weapon_number() == 2:
-
-
-
-                    
-                #     print( "and so the main weapon number is: " + str(weapons_number.change_shooting_time()))
-
-                # if weapons_number.get_weapon_number() == 3:
-                #     print( "and so the main weapon number is: " + str(weapons_number.change_shooting_time()))
-
-                # if weapons_number.get_weapon_number() == 7:
-                #     print( "and so the main weapon number is: " + str(weapons_number.change_shooting_time()))
-
-
-
-    
-
-
-
-
-
-g = Farty()
+g = Simulate_clicks()
 g
+
+
+
+
+# presses a key
+# keyword.press('key')
+# keyword.release('key')
