@@ -40,10 +40,15 @@ standby = True
 
 class Simulate_clicks:
 
-    
+
+
 
     random_weapon_number_generated = Active_weapons_switcher.random_number_generator()        
     i = Active_weapons_switcher(random_weapon_number_generated)
+
+
+    
+
         
 
     keyboard = Controller()
@@ -55,9 +60,10 @@ class Simulate_clicks:
     shot = 0
 
 
+
  
 
-    
+     
     while standby == True:
         
         shoot = win32api.GetKeyState(0x01)
@@ -67,17 +73,52 @@ class Simulate_clicks:
 
         if shoot != state_left:
             state_left = shoot
-            print(shoot)
-            if shoot < 0:
-                shot += 1
-                print("shot count is: " + str(shot))
-                print("weapon is: " + str(i.get_weapon_key))
+            
+            print("detected mouse")
+            if shoot > 0:
+                a = i.get_weapon_key()
+                if a == 1 or a == 4 or a == 5 or a == 6:
+                    print("short")
+                    time.sleep(3)
+                    
+                    keyboard.press(str(a))
+                    keyboard.release(str(a))
+                    i.generate_new_numbers(Active_weapons_switcher.random_number_generator())
+                    print("New Gun is: " + str(i.get_weapon_key()))
+                else:
+                    pass
+
+            elif shoot < 0:
+                print("release mouse")
+                
+                a = i.get_weapon_key()
+
+                if a == 2 or a == 3 or a == 7:
+                    print("long")
+                    time.sleep(6)
+
+                    keyboard.press(str(a))
+                    keyboard.release(str(a))
+                    i.generate_new_numbers(Active_weapons_switcher.random_number_generator())
+                else:
+                    pass
+
+                
+                    
 
 
-                time.sleep(3)
-                i.random_number_generator
+                
 
-                print("new number is: "+ str(i.get_weapon_key))
+                    
+
+                
+
+                
+
+                    
+
+
+
      
         
 
@@ -87,8 +128,8 @@ class Simulate_clicks:
              
 
 
-g = Simulate_clicks()
-g
+
+
 
 
 
