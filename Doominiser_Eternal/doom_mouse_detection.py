@@ -79,7 +79,7 @@ class Simulate_clicks:
                 a = i.get_weapon_key()
                 if a == 1 or a == 4 or a == 5 or a == 6:
                     print("short")
-                    time.sleep(2)
+                    time.sleep(.5)
                     
                     keyboard.press(str(a))
                     keyboard.release(str(a))
@@ -95,7 +95,7 @@ class Simulate_clicks:
 
                 if a == 2 or a == 3 or a == 7:
                     print("long")
-                    time.sleep(2)
+                    time.sleep(4)
 
                     keyboard.press(str(a))
                     keyboard.release(str(a))
