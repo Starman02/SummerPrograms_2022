@@ -1,4 +1,4 @@
-from math import frexp
+
 from tkinter import *
 from PIL import ImageTk, Image
 
