@@ -1,7 +1,13 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 from tkinter import *
 from PIL import ImageTk, Image
+=======
+import tkinter as tk
+from tkinter import ttk
+from tkinter import * 
+>>>>>>> parent of bba7096 (background image successful)
 =======
 import tkinter as tk
 from tkinter import ttk
@@ -18,8 +24,11 @@ root.title('Hello, I\'m the main window')
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 mainloop()
 =======
+=======
+>>>>>>> parent of bba7096 (background image successful)
 # First, we create a canvas to put the picture on
 jumanji= Canvas(root, height=810, width=530)
 # Then, we actually create the image file to use (it has to be a *.gif)
@@ -34,4 +43,7 @@ Label(root, text='oh yeahhhhhh', bg='#9ACD32', font=('arial', 12, 'normal')).pla
 
 
 root.mainloop()
+<<<<<<< HEAD
+>>>>>>> parent of bba7096 (background image successful)
+=======
 >>>>>>> parent of bba7096 (background image successful)
