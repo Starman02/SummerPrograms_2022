@@ -12,12 +12,13 @@ when in standbymode, weapon switching will occur.
 
 
 
-from ast import keyword
+
 from doom_main import *
 from pynput.mouse import Listener
 from pynput.keyboard import Key,Controller
 import time
 import win32api
+import keyboard
 import sys
 
 
@@ -30,9 +31,7 @@ import sys
 clicked = False
 
 
-print("chink")
-
-standby = True
+print("chunk")
 
 
 
@@ -46,62 +45,57 @@ class Simulate_clicks:
     random_weapon_number_generated = Active_weapons_switcher.random_number_generator()        
     i = Active_weapons_switcher(random_weapon_number_generated)
 
-
-    
-
-        
-
-    keyboard = Controller()
+    keyboarded = Controller()
 
 
 
 
     state_left = win32api.GetKeyState(0x01)
-    shot = 0
-
-
-
+    on = 0
  
-
-     
-    while standby == True:
-        
-        shoot = win32api.GetKeyState(0x01)
-
-
-
-
-        if shoot != state_left:
-            state_left = shoot
+    if keyboard.is_pressed('k'):
+        on += 1
+        while on == 1:
             
-            print("detected mouse")
-            if shoot > 0:
-                a = i.get_weapon_key()
-                if a == 1 or a == 4 or a == 5 or a == 6:
-                    print("short")
-                    time.sleep(.5)
-                    
-                    keyboard.press(str(a))
-                    keyboard.release(str(a))
-                    i.generate_new_numbers(Active_weapons_switcher.random_number_generator())
-                    print("New Gun is: " + str(i.get_weapon_key()))
-                else:
-                    pass
+            shoot = win32api.GetKeyState(0x01)
 
-            elif shoot < 0:
-                print("release mouse")
+
+
+
+            if shoot != state_left:
+                state_left = shoot
                 
-                a = i.get_weapon_key()
+                print("detected mouse")
+                if shoot > 0:
+                    a = i.get_weapon_key()
+                    if a == 1 or a == 4 or a == 5 or a == 6:
+                        print("short")
+                        time.sleep(.5)
+                        
+                        keyboarded.press(str(a))
+                        keyboarded.release(str(a))
+                        i.generate_new_numbers(Active_weapons_switcher.random_number_generator())
+                        print("New Gun is: " + str(i.get_weapon_key()))
+                    else:
+                        pass
 
-                if a == 2 or a == 3 or a == 7:
-                    print("long")
-                    time.sleep(4)
+                elif shoot < 0:
+                    print("release mouse")
+                    
+                    a = i.get_weapon_key()
 
-                    keyboard.press(str(a))
-                    keyboard.release(str(a))
-                    i.generate_new_numbers(Active_weapons_switcher.random_number_generator())
-                else:
-                    pass
+                    if a == 2 or a == 3 or a == 7:
+                        print("long")
+                        time.sleep(3)
+
+                        keyboarded.press(str(a))
+                        keyboarded.release(str(a))
+                        i.generate_new_numbers(Active_weapons_switcher.random_number_generator())
+                    else:
+                        pass
+    elif on == 2:
+        on = 0
+
 
                 
                     
