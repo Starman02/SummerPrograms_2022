@@ -1,15 +1,45 @@
-from math import frexp
-from tkinter import *
+
+
+import tkinter as tk
 from PIL import ImageTk, Image
 
 
 
-root = Tk()
 
-canv = Canvas(root, width=800, height=900, bg='white')
-canv.grid(row=2, column=3)
 
-img = ImageTk.PhotoImage(Image.open("D:\Summer_Programs_2021\SummerPrograms_2022\Doominiser_Eternal\senorDoomington.png"))  # PIL solution
-canv.create_image(500, 500, anchor=NW, image=img)
 
-mainloop()
+
+
+class MainGui:
+    def __init__(self):
+        self.gui_window = tk.Tk()
+
+        self.gui_window.geometry("800x900")
+        self.gui_window.configure(background='gray')
+
+        self.img = ImageTk.PhotoImage(file="D:\Summer_Programs_2021\SummerPrograms_2022\Doominiser_Eternal\senorDoomington.png")
+        # background panel
+        self.bgpanel = tk.Label(self.gui_window, image=self.img)
+        self.bgpanel.pack(side='bottom', fill="both", expand="yes")
+
+
+
+        self.gui_window.mainloop()
+
+
+        
+    
+
+        
+
+
+
+
+
+
+
+g = MainGui()
+g
+
+
+
