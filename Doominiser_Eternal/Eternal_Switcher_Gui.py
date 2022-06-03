@@ -1,17 +1,18 @@
 
 
 
+from itertools import count
 import tkinter as tk
 import time
 from PIL import ImageTk, Image
 from doom_mouse_detection import *
+from standby_mode import Standby
 import sys
 import threading
 
 
 
 
-DT = Simulate_clicks()
 
 
 
@@ -63,10 +64,11 @@ class MainGui:
     
     def start_randomization(self):                                              # starts randomization program
         time.sleep(5)
+        counter += 1
 
-        DT = Simulate_clicks()
 
-        DT.standby = True
+        Standby.set_status(counter)
+
         
 
 

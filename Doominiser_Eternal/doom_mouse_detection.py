@@ -2,7 +2,7 @@
 This part of the program detects the clicks from the users mouse and then activates the weapon switcher
 This will only occur when not in standby mode however
 Standby mode is going to be in a while loop, and if the user has not turned on standby mode, then nothing will happen. 
-when in standbymode, weapon switching will occur. 
+when in standby mode, weapon switching will occur. 
 
 
 
@@ -11,11 +11,11 @@ when in standbymode, weapon switching will occur.
 """
 
 
-
-
-from doom_main import *
+from standby_mode import Standby
+from doom_main import Active_weapons_switcher
 from pynput.mouse import Listener
 from pynput.keyboard import Key,Controller
+
 import time
 import win32api
 import keyboard
@@ -25,7 +25,7 @@ import keyboard
 
 
 
-standby = False
+
 
 
 
@@ -41,7 +41,13 @@ standby = False
 
 class Simulate_clicks:
 
+
+    
+
+
     print("chunk")
+
+    
 
 
 
@@ -57,10 +63,14 @@ class Simulate_clicks:
 
 
     state_left = win32api.GetKeyState(0x01)
+
+    standby_mode = Standby.get_standby()
+
+    
     
  
 
-    while standby == True:
+    while standby_mode== 1:
             
         shoot = win32api.GetKeyState(0x01)
 

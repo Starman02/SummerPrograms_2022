@@ -36,18 +36,4 @@ class Active_weapons_switcher:
 
 
 
-"""
-Refrence:
-Doom Guns:
-1: combat shotgun
-2: AR
-3. Plasma
-4. Rocket Launcher
-5. Super Shotgun
-6. Ballista
-7.CHAIN GUN
-"""
-
-
-
 
