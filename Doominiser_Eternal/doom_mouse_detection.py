@@ -19,19 +19,21 @@ from pynput.keyboard import Key,Controller
 import time
 import win32api
 import keyboard
-import sys
 
 
 
 
 
-        
+
+standby = False
 
 
-clicked = False
 
 
-print("chunk")
+
+
+
+
 
 
 
@@ -39,11 +41,15 @@ print("chunk")
 
 class Simulate_clicks:
 
+    print("chunk")
+
 
 
 
     random_weapon_number_generated = Active_weapons_switcher.random_number_generator()        
     i = Active_weapons_switcher(random_weapon_number_generated)
+
+    
 
     keyboarded = Controller()
 
@@ -51,7 +57,7 @@ class Simulate_clicks:
 
 
     state_left = win32api.GetKeyState(0x01)
-    standby = True
+    
  
 
     while standby == True:
