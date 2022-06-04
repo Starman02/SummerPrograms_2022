@@ -1,22 +1,26 @@
 
 
 
-from itertools import count
+
 import tkinter as tk
 import time
 from PIL import ImageTk, Image
-from doom_mouse_detection import *
+
 from standby_mode import Standby
 import sys
 import threading
+from doom_mouse_detection import *
 
 
+counter = 0
 
 
 
 
 
 class MainGui:
+    
+
     def __init__(self):
         self.gui_window = tk.Tk()
 
@@ -61,13 +65,18 @@ class MainGui:
 
         self.gui_window.mainloop()
     
+
+
+  
+   
     
-    def start_randomization(self):                                              # starts randomization program
+    def start_randomization(self):  
+        dc = Standby()                                            # starts randomization program
         time.sleep(5)
         counter += 1
 
 
-        Standby.set_status(counter)
+        dc.set_status(counter)
 
         
 
@@ -78,7 +87,7 @@ class MainGui:
     
 
         
- 
+
 
 
 

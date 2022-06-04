@@ -64,13 +64,15 @@ class Simulate_clicks:
 
     state_left = win32api.GetKeyState(0x01)
 
-    standby_mode = Standby.get_standby()
+    standby_mode = Standby()
+
+    cc = standby_mode.get_standby()
 
     
     
  
 
-    while standby_mode== 1:
+    while cc == 1:
             
         shoot = win32api.GetKeyState(0x01)
 
