@@ -15,7 +15,6 @@ from standby_mode import Standby
 from doom_main import Active_weapons_switcher
 from pynput.mouse import Listener
 from pynput.keyboard import Key,Controller
-
 import time
 import win32api
 import keyboard
@@ -23,23 +22,25 @@ import keyboard
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 class Simulate_clicks:
+
+    def __init__(self, if_counted=0):
+        self.if_counted = if_counted
+
+    
+    
+    # sets and gets standby status for the 
+    def set_status(self, if_counted):
+        self.if_counted = if_counted
+
+
+    def get_if_counted(self):
+        return self.if_counted
+
+
+
+
+    
 
 
     
@@ -66,13 +67,11 @@ class Simulate_clicks:
 
     standby_mode = Standby()
 
-    cc = standby_mode.get_standby()
-
     
     
  
 
-    while cc == 1:
+    while a == 1:
             
         shoot = win32api.GetKeyState(0x01)
 
