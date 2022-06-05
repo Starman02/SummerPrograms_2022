@@ -30,85 +30,82 @@ class Simulate_clicks:
     
     
     # sets and gets standby status for the 
-    def set_status(self, if_counted):
+    def set_if_counted(self, if_counted):
         self.if_counted = if_counted
 
 
     def get_if_counted(self):
         return self.if_counted
 
-
-
-
-    
-
-
-    
-
-
     print("chunk")
 
     
 
-
-
-
-    random_weapon_number_generated = Active_weapons_switcher.random_number_generator()        
-    i = Active_weapons_switcher(random_weapon_number_generated)
+    
 
     
 
-    keyboarded = Controller()
+    def game_running(self):  
+
+        random_weapon_number_generated = Active_weapons_switcher.random_number_generator()        
+        i = Active_weapons_switcher(random_weapon_number_generated)      
+
+        keyboarded = Controller()
 
 
 
 
-    state_left = win32api.GetKeyState(0x01)
+        state_left = win32api.GetKeyState(0x01)                                                                  
 
-    standby_mode = Standby()
-
-    
-    
- 
-
-    while a == 1:
-            
-        shoot = win32api.GetKeyState(0x01)
-
-
-
-
-        if shoot != state_left:
-            state_left = shoot
+        while self.get_if_counted() == 1:
                 
-            print("detected mouse")
-            if shoot > 0:
-                a = i.get_weapon_key()
-                if a == 1 or a == 4 or a == 5 or a == 6:
-                    print("short")
-                    time.sleep(.5)
-                        
-                    keyboarded.press(str(a))
-                    keyboarded.release(str(a))
-                    i.generate_new_numbers(Active_weapons_switcher.random_number_generator())
-                    print("New Gun is: " + str(i.get_weapon_key()))
-                else:
-                    pass
+            shoot = win32api.GetKeyState(0x01)
 
-            elif shoot < 0:
-                print("release mouse")
+
+
+
+            if shoot != state_left:
+                state_left = shoot
                     
-                a = i.get_weapon_key()
+                print("detected mouse")
+                if shoot > 0:
+                    a = i.get_weapon_key()
+                    if a == 1 or a == 4 or a == 5 or a == 6:
+                        print("short")
+                        time.sleep(.5)
+                            
+                        keyboarded.press(str(a))
+                        keyboarded.release(str(a))
+                        i.generate_new_numbers(Active_weapons_switcher.random_number_generator())
+                        print("New Gun is: " + str(i.get_weapon_key()))
+                    else:
+                        pass
 
-                if a == 2 or a == 3 or a == 7:
-                    print("long")
-                    time.sleep(3)
+                elif shoot < 0:
+                    print("release mouse")
+                        
+                    a = i.get_weapon_key()
 
-                    keyboarded.press(str(a))
-                    keyboarded.release(str(a))
-                    i.generate_new_numbers(Active_weapons_switcher.random_number_generator())
-                else:
-                    pass
+                    if a == 2 or a == 3 or a == 7:
+                        print("long")
+                        time.sleep(1.5)
+
+                        keyboarded.press(str(a))
+                        keyboarded.release(str(a))
+                        i.generate_new_numbers(Active_weapons_switcher.random_number_generator())
+                    else:
+    
+    
+    
+                        pass
+
+
+
+
+start = Simulate_clicks.game_running
+    
+
+    
 
 
                 

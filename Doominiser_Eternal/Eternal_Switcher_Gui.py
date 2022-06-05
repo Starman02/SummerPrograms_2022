@@ -69,39 +69,18 @@ class MainGui:
    
     
     def start_randomization(self):  
-        dc = Standby()                                           # starts randomization program
+        dc = Standby(1)                                           # starts randomization program
         time.sleep(5)
+        print("begining")
         a = dc.get_standby()
-        a +=1
-        Simulate_clicks.set_status(a)
+        print(str(a))
+        et = Simulate_clicks()
+        et.set_if_counted(a)
+        et.game_running(a)
 
-
-
-
-
-
-
-class Counter:
-    def __init__(self, count=0):
-        self.count = count
-
-
-    def set_count(self, count):
-        self.count = count
-
-
-    def get_count(self):
-        return self.count
-
-
-
-
-        
     
 
-        
-
-
+    
 
 
 

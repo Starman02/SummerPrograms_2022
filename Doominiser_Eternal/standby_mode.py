@@ -11,5 +11,3 @@ class Standby:
 
     def get_standby(self):
         return self.status
-
-
