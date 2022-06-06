@@ -13,7 +13,7 @@ when in standby mode, weapon switching will occur.
 
 
 
-from doom_main import Active_weapons_switcher
+from doom_main import *
 from pynput.mouse import Listener
 from pynput.keyboard import Key,Controller
 import time
@@ -50,7 +50,7 @@ class Simulate_clicks:
             state_left = shoot
                     
             print("detected mouse")
-            if shoot > 0:
+            if shoot >= 0:
                 a = i.get_weapon_key()
                 if a == 1 or a == 4 or a == 5 or a == 6:
                     print("short")
@@ -69,7 +69,6 @@ class Simulate_clicks:
                 a = i.get_weapon_key()
 
                 if a == 2 or a == 3 or a == 7:
-                    print("long")
                     time.sleep(1.5)
 
                     keyboarded.press(str(a))
@@ -91,11 +90,30 @@ g
                 
                     
 
+
+                
+
+                    
+
+                
+
+                
+
+                    
+
+
+
+     
+        
+
+
+
+
              
 
 
-g = Simulate_clicks()
-g
+4
+
 
 
 
