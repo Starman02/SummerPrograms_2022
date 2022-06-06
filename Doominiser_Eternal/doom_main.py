@@ -13,11 +13,10 @@ import random
 
 
 class Active_weapons_switcher:
-
-    # this class holds the objects of the weapons number, and also stores the random number generator
-    
     def __init__(self, weapon):
         self.weapon = weapon
+
+
 
     def random_number_generator():
         random_weapon_number = random.randint(1, 7)
@@ -26,14 +25,32 @@ class Active_weapons_switcher:
 
 
 
+    def change_shooting_key(self):
 
-    def generate_new_numbers(self, weapon):
-        self.weapon = weapon
+        if self.shooting_count == 1:
+            self.shooting_count = 1
+            
+        elif self.shooting_count == 4:
+            self.shooting_count = 4
+
+        elif self.shooting_count == 5:
+            self.shooting_count = 5
+
+        elif self.shooting_count == 6:
+            self.shooting_count = 6
 
 
-    def get_weapon_key(self):
-        return self.weapon
 
 
 
+
+
+
+
+# gives the sorter a random number
+# will be moved into main function
+
+
+# assigns random numbers into the generator
+# should probobly put them in a function
 
