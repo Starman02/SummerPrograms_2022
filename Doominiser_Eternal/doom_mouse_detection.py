@@ -24,65 +24,51 @@ import keyboard
 
 
 class Simulate_clicks:
+    standby = True
 
     
 
     random_weapon_number_generated = Active_weapons_switcher.random_number_generator()        
     i = Active_weapons_switcher(random_weapon_number_generated)
         
+     
+
+ 
 
     
-
-
-
-
-    random_weapon_number_generated = Active_weapons_switcher.random_number_generator()        
-    i = Active_weapons_switcher(random_weapon_number_generated)      
-
-    keyboarded = Controller()
-
-
-
-
-    state_left = win32api.GetKeyState(0x01)
+    while standby == True:
         
-    standby = True
-    while standby == True:    
         shoot = win32api.GetKeyState(0x01)
+        keyboarded = Controller()
+
+
+
+
+        state_left = win32api.GetKeyState(0x01)
 
 
 
 
         if shoot != state_left:
             state_left = shoot
-                        
-            print("detected mouse")
-            if shoot > 0:
-                a = i.get_weapon_key()
-                if a == 1 or a == 4 or a == 5 or a == 6:
-                    print("short")
-                    time.sleep(.5)
-                    keyboarded.press(str(a))
-                    keyboarded.release(str(a))
-                    i.generate_new_numbers(Active_weapons_switcher.random_number_generator())
-                    print("New Gun is: " + str(i.get_weapon_key()))
-                else:
-                    pass
+            print(shoot)
+            if shoot < 0:
+                shot += 1
+                print("shot count is: " + str(shot))
+                print("weapon is: " + str(i.get_weapon_key))
 
-            elif shoot < 0:
-                print("release mouse")
-                            
-                a = i.get_weapon_key()
 
-                if a == 2 or a == 3 or a == 7:
-                    print("long")
-                    time.sleep(1.5)
+                time.sleep(3)
+                i.random_number_generator
 
-                    keyboarded.press(str(a))
-                    keyboarded.release(str(a))
-                    i.generate_new_numbers(Active_weapons_switcher.random_number_generator())
-                else:
-                    pass
+                print("new number is: "+ str(i.get_weapon_key))
+     
+        
+
+
+
+
+             
 
 
 g = Simulate_clicks()
