@@ -24,24 +24,10 @@ class Active_weapons_switcher:
         return random_weapon_number
 
     def get_weapon_key(self):
-
-        # if self.weapon == 1:
-        #     self.weapon = 1
-        # elif self.weapon == 2:
-        #     self.weapon = 2
-        # elif self.weapon == 3:
-        #     self.weapon = 3
-        # elif self.weapon == 4:
-        #     self.weapon = 4
-        # elif self.weapon == 5:
-        #     self.weapon = 5
-        # elif self.weapon == 6:
-        #     self.weapon = 6
-        # elif self.weapon == 7:
-        #     self.weapon = 7
-
         return self.weapon
 
+    def generate_new_numbers(self, weapon):
+        self.weapon = weapon
 
     def __str__(self):
         main_printings = str(self.weapon) + " Weapon selection " + str(self.shooting_count) + " weapon Shooting Count " + str(self.shooting_time) + " weapon Shooting Time"
