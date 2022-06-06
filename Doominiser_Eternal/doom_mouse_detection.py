@@ -11,8 +11,8 @@ when in standby mode, weapon switching will occur.
 """
 
 
-from telnetlib import PRAGMA_HEARTBEAT
-from standby_mode import Standby
+
+
 from doom_main import Active_weapons_switcher
 from pynput.mouse import Listener
 from pynput.keyboard import Key,Controller
@@ -25,9 +25,6 @@ import keyboard
 
 class Simulate_clicks:
     standby = True
-
-    
-
     random_weapon_number_generated = Active_weapons_switcher.random_number_generator()        
     i = Active_weapons_switcher(random_weapon_number_generated)
         
@@ -51,17 +48,62 @@ class Simulate_clicks:
 
         if shoot != state_left:
             state_left = shoot
-            print(shoot)
-            if shoot < 0:
-                shot += 1
-                print("shot count is: " + str(shot))
-                print("weapon is: " + str(i.get_weapon_key))
+                    
+            print("detected mouse")
+            if shoot > 0:
+                a = i.get_weapon_key()
+                if a == 1 or a == 4 or a == 5 or a == 6:
+                    print("short")
+                    time.sleep(.5)
+                            
+                    keyboarded.press(str(a))
+                    keyboarded.release(str(a))
+                    i.generate_new_numbers(Active_weapons_switcher.random_number_generator())
+                    print("New Gun is: " + str(i.get_weapon_key()))
+                else:
+                    pass
+
+            elif shoot < 0:
+                print("release mouse")
+                        
+                a = i.get_weapon_key()
+
+                if a == 2 or a == 3 or a == 7:
+                    print("long")
+                    time.sleep(1.5)
+
+                    keyboarded.press(str(a))
+                    keyboarded.release(str(a))
+                    i.generate_new_numbers(Active_weapons_switcher.random_number_generator())
+                else:
+                    pass
 
 
-                time.sleep(3)
-                i.random_number_generator
 
-                print("new number is: "+ str(i.get_weapon_key))
+
+g = Simulate_clicks()
+g
+    
+
+    
+
+
+                
+                    
+
+
+                
+
+                    
+
+                
+
+                
+
+                    
+
+
+
      
         
 
@@ -71,8 +113,8 @@ class Simulate_clicks:
              
 
 
-g = Simulate_clicks()
-g
+
+
 
 
 
