@@ -11,6 +11,7 @@ when in standby mode, weapon switching will occur.
 """
 
 
+from telnetlib import PRAGMA_HEARTBEAT
 from standby_mode import Standby
 from doom_main import Active_weapons_switcher
 from pynput.mouse import Listener
@@ -46,6 +47,7 @@ class Simulate_clicks:
     
 
     def game_running(self):  
+        print("in function")
 
         random_weapon_number_generated = Active_weapons_switcher.random_number_generator()        
         i = Active_weapons_switcher(random_weapon_number_generated)      
@@ -55,9 +57,12 @@ class Simulate_clicks:
 
 
 
-        state_left = win32api.GetKeyState(0x01)                                                                  
+        state_left = win32api.GetKeyState(0x01)
+        print(str(self.get_if_counted()))                                                                  
 
-        while self.get_if_counted() == 1:
+        if self.get_if_counted() == 1:
+            standby = True
+            while standby == True:
                 
             shoot = win32api.GetKeyState(0x01)
 
