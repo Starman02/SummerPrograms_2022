@@ -14,8 +14,8 @@ from pynput.keyboard import Key,Controller
 import time
 import win32api
 # from doom_mouse_detection import *
-
-
+"""
+###################################################################################
 class MainGui:
     
     
@@ -81,3 +81,6 @@ class MainGui:
 g = MainGui()
 g
 
+#######################################################################
+"""
+# should have had a main event loop, look at pygame refrence
