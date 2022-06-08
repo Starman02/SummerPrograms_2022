@@ -2,6 +2,7 @@ This Program Is terminal based, Reason being is its my first program Ive made so
 
 
 CONTROLS: 
+-To start the program run the doom_mouse_detection.py file
 -When starting the program, type K into the Terminal bar, after that you will have 4 seconds till the program starts detecting clicks. 
 How its works is a random number between 1 and 7 is generated, that number is then sent to a function to press that same number, switching faster than any human could ever need or want too! This may sound bad, but in many situations the randomizer can select a combination of guns that absolutely destroy any demon in your path. 
 Except the Marauder, the only best combo to kill them is still super-ballista. 
