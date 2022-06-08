@@ -11,7 +11,7 @@ import random
 
 
 
-# this class handles randomization and retiriving the randomized information
+# this class handles randomization and fetching the randomized information
 class Active_weapons_switcher:
     def __init__(self, weapon):
         self.weapon = weapon

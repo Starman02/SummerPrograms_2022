@@ -11,3 +11,6 @@ Except the Marauder, the only best combo to kill them is still super-ballista.
 
 Potential future plans: 
 have each weapon have its own optimized unique switching time, currently all single shot guns swap every half second, and hold to fire wait till your done and then swap at 3 seconds. 
+I dont plan to just abandon this entirely, I want to add a stop key and a pause key and In the future I will know how to do it, but for now I want to start working on another small program. 
+
+
