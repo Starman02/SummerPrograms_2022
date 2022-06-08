@@ -28,6 +28,7 @@ class Simulate_clicks:
     if x == "k":
         time.sleep(4)
         standby += 1
+        print("Begin THe Rippin and the Randomizin")
         while standby == 1:
             shoot = win32api.GetKeyState(0x01)
             keyboarded = Controller()
