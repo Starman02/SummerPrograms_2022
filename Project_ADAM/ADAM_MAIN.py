@@ -3,7 +3,7 @@ Project ADAM's Main class, this will retrive data from other main questions/cate
 """
 
 import tkinter
-from ADAM_GUI_Basic import ADAM_GUI_V1
+from ADAM_mk1_Assistance import *
 
 
 
@@ -20,8 +20,10 @@ class ADAM:
         Adam_gui.text.set("Hello, What kind of Decision do you need help with?")
 
         if command_adam == "decision help":
-            Adam_gui.text.set("Hello, What kind of Decision do you need help with?")
+            adam_assist = ADAM_Decision_assist_v0()
+            adam_assist.start_assistance_mk1()
 
+            
         
 
 
