@@ -27,6 +27,11 @@ Demos for computer vision.
 """
 
 
+# iml = pyautogui.screenshot('diabetes.png',region=(50,40,2500,300))
+# pyautogui.displayMousePosition()          # displays x y coords and RGB values for every pixel
+
+
+
 # tests area for the program 
 
 while keyboard.is_pressed('q') == False:

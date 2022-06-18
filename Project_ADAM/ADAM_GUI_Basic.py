@@ -4,6 +4,7 @@ This is model one for Project ADAM's GUI Interface, which is the most basic and 
 import tkinter
 import time
 
+
 class ADAM_GUI_V1:
 
     def __init__(self):
@@ -41,11 +42,27 @@ class ADAM_GUI_V1:
 
         tkinter.mainloop()
 
-    def send_off(self):
-        adam_declare = ADAM()
-        retrived = str(self.entry_box.get())
-        print("Sendoff")
-        adam_declare.set_entry_brain(retrived) # this sends the data off to ADAM_MAIN
+    def send_off(self):    # this sends the data off to ADAM_MAIN
+        placeholder = Handoff()
+
+        placeholder.set_placeholder(str(self.ADAM_LABEL))
+
+    def get_entry_text(self):
+        return self.ADAM_LABEL 
+
+
+
+class Handoff:               
+    def __init__(self, placeholder=""):
+        self.placeholder = placeholder          
+
+
+    def get_placeholder(self):
+        return self.placeholder
+
+
+    def set_placeholder(self, placeholder):
+        self.placeholder = placeholder
 
         
 
