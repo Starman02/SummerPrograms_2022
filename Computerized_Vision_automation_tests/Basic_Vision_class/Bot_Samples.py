@@ -9,7 +9,6 @@ import pyautogui
 import time
 import keyboard
 import random
-import win32api, win32con
 
 time.sleep(1)
 print('begin')
@@ -22,6 +21,14 @@ print('begin')
 
 
 
+"""
+Demos for computer vision. 
+
+"""
+
+
+# iml = pyautogui.screenshot('diabetes.png',region=(50,40,2500,300))
+# pyautogui.displayMousePosition()          # displays x y coords and RGB values for every pixel
 
 
 
@@ -31,9 +38,9 @@ while keyboard.is_pressed('q') == False:
 
 
     if pyautogui.pixelMatchesColor(2123, 43,(221 ,189 ,62)) == True:
-        print("full health")
+        print("color is present")
     else:
-        print("Damaged")
+        print("Color is not present")
 
 
     if pyautogui.locateOnScreen('healing_cooldown.png', confidence=.8) != None:
