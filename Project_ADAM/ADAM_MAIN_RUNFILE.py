@@ -46,7 +46,7 @@ class ADAM_GUI_V1:
 
 
 
-#####PASS OFF ENGINE##############
+#######TEXT SORTING ENGINE##############
 
 
 
@@ -72,39 +72,6 @@ class ADAM_GUI_V1:
 
 
 ############################################################################################################################################################################################################################################################################################################################
-
-
-"""
-Main running class for adam
-
-"""
-
-
-
-
-
-# class ADAM_V1: 
-    
-
-#     def __init__(self, command_ADAM):
-#         self.command_adam = command_ADAM
-
-
-
-
-
-#     def set_entry_brain(self, command_adam):
-#         print("passed into")
-#         print(command_adam)
-        
-        
-#         self.main_storage = command_adam
-
-#         if self.main_storage == "decision help":
-#             print("need assistance?")
-
-           
-
 
 
 start_ADAM = ADAM_GUI_V1()
