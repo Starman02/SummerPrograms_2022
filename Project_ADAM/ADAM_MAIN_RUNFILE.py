@@ -1,7 +1,6 @@
 
 import tkinter
 
-from pkg_resources import set_extraction_path
 
 
 
@@ -46,14 +45,16 @@ class ADAM_GUI_V1:
 
 
 
-#######TEXT SORTING ENGINE##############
+#######TEXT SORTING ENGINE#######################################################################################################################################################################################       0
 
 
 
     def set_entry_brain(self):
         user_entry = str(self.entry_box.get())
+        updated_search = user_entry.replace(" ", "_")
+
         print("passed into")
-        print(user_entry)
+        print(updated_search) 
         
         
 
