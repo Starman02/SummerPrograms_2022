@@ -1,4 +1,5 @@
 
+import pickle
 import tkinter
 
 
@@ -45,13 +46,20 @@ class ADAM_GUI_V1:
 
 
 
-#######TEXT SORTING ENGINE#######################################################################################################################################################################################       0
+#######SEARCHENGINE#######################################################################################################################################################################################       
 
 
 
     def set_entry_brain(self):
         user_entry = str(self.entry_box.get())
         updated_search = user_entry.replace(" ", "_")
+
+        test_list = ["decision_aid", "corn_on_the_cob", "diagnose_sheeeeveee_palpatine"]
+        
+        search_file = open(r"D:\Summer_Programs_2021\Project_ADAM\ADAM_AI_STORAGE\ADAM_SEARCH_ENGINE.txt", "w")
+        pickle.dump(test_list, search_file)
+        search_file.close
+
 
         print("passed into")
         print(updated_search) 
