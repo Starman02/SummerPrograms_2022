@@ -54,18 +54,16 @@ class ADAM_GUI_V1:
         user_entry = str(self.entry_box.get())
         updated_search = user_entry.replace(" ", "_")
 
-        test_list = ["decision_aid", "corn_on_the_cob", "diagnose_sheeeeveee_palpatine", "nigayaba_grimble"]
-
-        with open('ADAM_SEARCH_ENGINE.txt', "w") as f:
-            f.write(json.dumps(test_list))
- 
+        with open('D:\Summer_Programs_2021\Project_ADAM\ADAM_AI_STORAGE\ADAM_SEARCH_ENGINE.txt', 'r') as filehandle:
+            ADAM_SEARCH_QUERIES = json.load(filehandle)
+        
 
 
         
 
         
         # for every item in the test list, do an action
-        for i in test_list:
+        for i in ADAM_SEARCH_QUERIES:
             print(i)
             if updated_search == i:
                 print("WHOOOOP")
