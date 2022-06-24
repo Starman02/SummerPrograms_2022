@@ -1,5 +1,5 @@
 
-import pickle
+import json
 import tkinter
 
 
@@ -55,11 +55,23 @@ class ADAM_GUI_V1:
         updated_search = user_entry.replace(" ", "_")
 
         test_list = ["decision_aid", "corn_on_the_cob", "diagnose_sheeeeveee_palpatine", "nigayaba_grimble"]
+
+        with open('ADAM_SEARCH_ENGINE.txt', "w") as f:
+            f.write(json.dumps(test_list))
+ 
+
+
         
 
-        search_file = open(r"D:\Summer_Programs_2021\Project_ADAM\ADAM_AI_STORAGE\ADAM_SEARCH_ENGINE.txt", "w")
-        pickle.dump(test_list, search_file)
-        search_file.close
+        
+        # for every item in the test list, do an action
+        for i in test_list:
+            print(i)
+            if updated_search == i:
+                print("WHOOOOP")
+        
+
+        
 
 
         print("passed into")
