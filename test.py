@@ -7,8 +7,8 @@ basicList = ["cope", "ringatony", "whatyuadoooooooin"]
 
 
 # open output file for writing
-with open('D:\Summer_Programs_2021\Project_ADAM\ADAM_AI_STORAGE\ADAM_SEARCH_ENGINE.txt', 'w') as filehandle:
-    json.dump(basicList, filehandle)
+# with open('D:\Summer_Programs_2021\Project_ADAM\ADAM_AI_STORAGE\ADAM_SEARCH_ENGINE.txt', 'w') as filehandle:
+#     json.dump(basicList, filehandle)
 
 
 
@@ -22,6 +22,6 @@ with open('D:\Summer_Programs_2021\Project_ADAM\ADAM_AI_STORAGE\ADAM_SEARCH_ENGI
 
 
 # open output file for reading
-with open('D:\Summer_Programs_2021\Project_ADAM\ADAM_AI_STORAGE\ADAM_SEARCH_ENGINE.txt', 'r') as filehandle:
+with open('D:\Summer_Programs_2021\Project_ADAM\ADAM_AI_STORAGE\ADAM_SEARCH_ENGINE_BASIC_ENTRIES.txt', 'r') as filehandle:
     pickled_list = json.load(filehandle)
 print(pickled_list)

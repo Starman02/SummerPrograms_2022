@@ -52,9 +52,9 @@ class ADAM_GUI_V1:
 
     def set_entry_brain(self):
         user_entry = str(self.entry_box.get())
-        updated_search = user_entry.replace(" ", "_")
+        
 
-        with open('D:\Summer_Programs_2021\Project_ADAM\ADAM_AI_STORAGE\ADAM_SEARCH_ENGINE.txt', 'r') as filehandle:
+        with open('D:\Summer_Programs_2021\Project_ADAM\ADAM_AI_STORAGE\ADAM_SEARCH_ENGINE_BASIC_ENTRIES.txt', 'r') as filehandle:
             ADAM_SEARCH_QUERIES = json.load(filehandle)
         
 
@@ -64,8 +64,7 @@ class ADAM_GUI_V1:
         
         # for every item in the test list, do an action
         for i in ADAM_SEARCH_QUERIES:
-            print(i)
-            if updated_search == i:
+            if i in user_entry:
                 print("WHOOOOP")
         
 
@@ -73,7 +72,7 @@ class ADAM_GUI_V1:
 
 
         print("passed into")
-        print(updated_search) 
+  
         
         
 
