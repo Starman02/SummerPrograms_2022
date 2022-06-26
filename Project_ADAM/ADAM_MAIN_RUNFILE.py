@@ -1,5 +1,6 @@
 
 import json
+from platform import win32_edition
 import tkinter
 
 
@@ -10,6 +11,10 @@ class ADAM_GUI_V1:
 
     def __init__(self):
         self.main_window = tkinter.Tk()
+
+
+
+        
 
 
 
@@ -51,33 +56,51 @@ class ADAM_GUI_V1:
 
 
     def set_entry_brain(self):
-        user_entry = str(self.entry_box.get())
+
+        print("passed into")
+
+        self.user_entry = str(self.entry_box.get())
         
 
-        with open('D:\Summer_Programs_2021\Project_ADAM\ADAM_AI_STORAGE\ADAM_SEARCH_ENGINE_BASIC_ENTRIES.txt', 'r') as filehandle:
-            ADAM_SEARCH_QUERIES = json.load(filehandle)
+        with open('D:\Summer_Programs_2021\Project_ADAM\ADAM_AI_STORAGE\ADAMSE_DECISION_V1.txt', 'r') as filehandle:
+            ADAM_SEARCH_QUERIES_DECISION = json.load(filehandle)
         
 
-
+        with open('D:\Summer_Programs_2021\Project_ADAM\ADAM_AI_STORAGE\ADAMSE_ASSISTANCE_V1.txt', 'r') as filehandle:
+            ADAM_SEARCH_QUERIES_ASSISTANCE = json.load(filehandle)
         
 
         
         # for every item in the test list, do an action
-        for i in ADAM_SEARCH_QUERIES:
-            if i in user_entry:
-                print("WHOOOOP")
+        for d in ADAM_SEARCH_QUERIES_DECISION:
+            if d in self.user_entry:
+                print("DECIDING")
+                break
+        for a in ADAM_SEARCH_QUERIES_ASSISTANCE:
+            if a in self.user_entry:
+                print("AIDING")
+                self.top_assitance = tkinter.Toplevel()
+
+                self.test_frame = tkinter.Frame(self.top_assitance)
+                self.test_label = tkinter.Label(self.test_frame, text="cheeseburger")
+                self.test_label.pack()
+                self.test_frame.pack()
+                
+                break
+                
+                
+                
         
 
         
 
 
-        print("passed into")
+        
   
         
         
 
-        if user_entry == "decision help":
-            print("need assistance?")
+        
 
            
 
