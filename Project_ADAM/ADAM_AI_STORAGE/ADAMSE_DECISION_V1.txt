@@ -1,1 +1,1 @@
-["decision aid", "decision", "help me make a decision"]
+["decision aid", "decision", "decide", "deciding", "help me make a decision"]

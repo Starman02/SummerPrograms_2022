@@ -3,6 +3,11 @@ import json
 from platform import win32_edition
 import tkinter
 
+###Import Adam_Modules###'
+from ADAM_mk1_Assistance import *
+
+#########################
+
 
 
 
@@ -11,6 +16,8 @@ class ADAM_GUI_V1:
 
     def __init__(self):
         self.main_window = tkinter.Tk()
+        self.main_window.geometry("800x900")
+        self.main_window.title("ADAM: ADVANCED DECISION ASSISTANCE MACHINE| BASIC GUI MK.1")
 
 
 
@@ -32,13 +39,13 @@ class ADAM_GUI_V1:
 
         self.label_speak = tkinter.Label(self.text_speaking_frame, textvariable = self.ADAM_LABEL)      # self.text will hold the welcome text as well as be the text for ADAM to talk back to you from
         self.ADAM_text_variable = str("")
-        self.entry_box = tkinter.Entry(self.entry_frame)
+        self.__entry_box = tkinter.Entry(self.entry_frame)
         
         self.begin_search = tkinter.Button(self.entry_frame, text="Begin Search", command = self.set_entry_brain)
 
 
         self.label_speak.pack()
-        self.entry_box.pack()
+        self.__entry_box.pack()
         self.begin_search.pack()
 
 
@@ -59,7 +66,7 @@ class ADAM_GUI_V1:
 
         print("passed into")
 
-        self.user_entry = str(self.entry_box.get())
+        self.user_entry = str(self.__entry_box.get())
         
 
         with open('D:\Summer_Programs_2021\Project_ADAM\ADAM_AI_STORAGE\ADAMSE_DECISION_V1.txt', 'r') as filehandle:
@@ -75,16 +82,21 @@ class ADAM_GUI_V1:
         for d in ADAM_SEARCH_QUERIES_DECISION:
             if d in self.user_entry:
                 print("DECIDING")
+                self.top_decide = tkinter.Toplevel()
+
+                self.test_frame2 = tkinter.Frame(self.top_decide)
+                self.test_label2 = tkinter.Label(self.test_frame2, text="cheeseburgerz")
+                self.test_label2.pack()
+                self.test_frame2.pack()
+                
                 break
         for a in ADAM_SEARCH_QUERIES_ASSISTANCE:
             if a in self.user_entry:
                 print("AIDING")
-                self.top_assitance = tkinter.Toplevel()
+                Assist_window = Assist_Module_MK1()
+                Assist_window.open_assistance_window()
 
-                self.test_frame = tkinter.Frame(self.top_assitance)
-                self.test_label = tkinter.Label(self.test_frame, text="cheeseburger")
-                self.test_label.pack()
-                self.test_frame.pack()
+                
                 
                 break
                 
