@@ -5,7 +5,7 @@ game_test = Ursina()
 
 
 ground = Entity(model="plane", texture="grass", collider="mesh", scale=(200, 1, 200))
-
+player = FirstPersonController(position=(0,2,-5))
 Sky()
 # for z in range(20):
 #     for x in range(20):
@@ -19,5 +19,8 @@ Sky()
 robo_entity = Entity(model=r'Assets\finnaly_letri.obj', texture=r'Assets\DefaultMaterial_Base_Color.png', scale=5, y=3, x = 2, z=.11)
 
 
-player = FirstPersonController()
+
+weapon = Entity(model=r'Assets\improvedwireframe.obj', parent=camera.ui, scale=2.5,color=color.gold, texure="white_cube", position=(0.8, -0.6))
+
+camera.z = -5
 game_test.run()
