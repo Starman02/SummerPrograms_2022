@@ -69,11 +69,11 @@ class ADAM_GUI_V1:
         self.user_entry = str(self.__entry_box.get())
         
 
-        with open('D:\Summer_Programs_2021\Project_ADAM\ADAM_AI_STORAGE\ADAMSE_DECISION_V1.txt', 'r') as filehandle:
+        with open('Project_ADAM/ADAM_AI_STORAGE/ADAMSE_DECISION_V1.txt', 'r') as filehandle:
             ADAM_SEARCH_QUERIES_DECISION = json.load(filehandle)
         
 
-        with open('D:\Summer_Programs_2021\Project_ADAM\ADAM_AI_STORAGE\ADAMSE_ASSISTANCE_V1.txt', 'r') as filehandle:
+        with open('Project_ADAM/ADAM_AI_STORAGE/ADAMSE_ASSISTANCE_V1.txt', 'r') as filehandle:
             ADAM_SEARCH_QUERIES_ASSISTANCE = json.load(filehandle)
         
 
