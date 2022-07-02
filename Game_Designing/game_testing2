@@ -1,4 +1,4 @@
-from turtle import up
+
 from ursina import *
 from ursina.prefabs.first_person_controller import FirstPersonController
 from random import uniform
@@ -8,7 +8,7 @@ Sky()
 
 ground = Entity(model='plane', texture='grass', collider='mesh', scale=(500,1,500))
 player = FirstPersonController(position=(0,2,-5))
-
+player.speed = 30
 
 weapon = Entity(model='Assets\scifi_shotty.obj', parent=camera.ui, scale=1, color=color.gold, texture='white_cube', position=(0.8, -0.6))
 
@@ -48,22 +48,21 @@ def update():
     else:
         weapon.position=(.8,-0.6)
 
-    if player.y <-5:
-            player.y = 2
+    if player.y < -5:
+        player.y = 2
     for evil in enemies:
+        
         if evil.visible:
-            evil.rotation_x = 270
-            evil.rotation_z = -50
+            print(evil.world_position)
             dist = distance(evil, player)
             if dist > 5: # if enemy is distance is greater than 5
                 evil.resume()
-                try:
-                    diff_x = player.x - evil.x
-                    diff_z = player.z - evil.z
-                    evil.x += 4*time.dt*diff_x*abs(diff_x)
-                    evil.z += 4*time.dt*diff_z/abs(diff_z)
-                except ZeroDivisionError:
-                    print("crash prevented")
+                
+                diff_x = player.x - evil.x
+                diff_z = player.z - evil.z
+                evil.x += 2*time.dt*diff_x*abs(diff_x)
+                evil.z += 4*time.dt*diff_z/abs(diff_z)
+                
             
                     
             else:
