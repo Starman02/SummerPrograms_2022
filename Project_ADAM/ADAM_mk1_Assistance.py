@@ -2,8 +2,10 @@
 # these parts will be a mix between ADAM_GUI and ADAM MAIN, 
 # these sections will either replace the standard welcome text with displayed information, or could possibly open up more TKinter windows,
 # it depends on what the user needs help with
+from curses import tigetflag
 import tkinter
 import pyperclip
+import time
 
 
 class Assist_Module_MK1:
@@ -48,7 +50,7 @@ class Assist_Module_MK1:
         self.user_entry_assist = str(self.entry_box_assist.get())
         
         # for every item in the test list, do an action
-        if "class assistance" in self.user_entry_assist:
+        if "class" in self.user_entry_assist:
             self.class_assist_window_1 = tkinter.Toplevel() # creates another window for ADAM
             self.class_frame1 = tkinter.Frame(self.class_assist_window_1)
 
@@ -60,15 +62,42 @@ class Assist_Module_MK1:
             self.label_assist_setting = tkinter.Label(self.class_frame1, textvariable = self.assistance_label1)  
             ####
             # copy and paste storage
-            c1 = "self."
+            self.c1 = "self."
+            self.c2 = ("")
             ####
-            self.self_help_button = tkinter.Button(self.class_assist_window_1,text="Copy: self", command=pyperclip.copy(c1))
-            self.assistance_label.set("copy and pasted")
-            
+            self.self_help_button = tkinter.Button(self.class_assist_window_1,text="Copy: self", command= lambda: self.action_button(self.c1))
+            self.getter_example_button = tkinter.Button(self.class_assist_window_1, text="Copy: get_attribute example")
+            self.setter_example_button = tkinter.Button(self.class_assist_window_1, text="Copy: set_attribute example")
+
+
 
             self.label_assist_setting.pack()
             self.self_help_button.pack(side="left")
             self.class_frame1.pack()
+
+
+    def action_button(self, text_placeholder):
+        
+        pyperclip.copy(text_placeholder)
+        self.assistance_label1.set(text_placeholder + " Action has been Preformed")
+
+
+        
+
+
+
+        
+        
+    
+            
+            
+
+            
+
+
+    
+
+
 
             
             
