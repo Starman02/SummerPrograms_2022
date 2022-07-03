@@ -1,0 +1,4 @@
+getx
+def get_X(self):\n\treturn self.X
+setx
+def set_X(self, X):\n\tself.X = X

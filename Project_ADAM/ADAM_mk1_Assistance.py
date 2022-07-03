@@ -2,10 +2,10 @@
 # these parts will be a mix between ADAM_GUI and ADAM MAIN, 
 # these sections will either replace the standard welcome text with displayed information, or could possibly open up more TKinter windows,
 # it depends on what the user needs help with
-from curses import tigetflag
 import tkinter
 import pyperclip
 import time
+import json
 
 
 class Assist_Module_MK1:
@@ -62,8 +62,33 @@ class Assist_Module_MK1:
             self.label_assist_setting = tkinter.Label(self.class_frame1, textvariable = self.assistance_label1)  
             ####
             # copy and paste storage
+            copy_dictionary = {}
+
+
+            filehandle = "Project_ADAM\STORAGE\copy_and_paste_samples.txt"
+            with open(filehandle) as d:
+                for line in d:
+                    copy_dictionary[line.strip()] = [next(d).strip()]
+            
+                
+
+            
+            filehandle.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
             self.c1 = "self."
-            self.c2 = ("")
+            self.c2 = (copy_dictionary['getx'])
             ####
             self.self_help_button = tkinter.Button(self.class_assist_window_1,text="Copy: self", command= lambda: self.action_button(self.c1))
             self.getter_example_button = tkinter.Button(self.class_assist_window_1, text="Copy: get_attribute example")
