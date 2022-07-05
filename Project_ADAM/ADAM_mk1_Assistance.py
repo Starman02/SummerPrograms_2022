@@ -1,8 +1,10 @@
+
 # foundation for future ADAM integrations
 # these parts will be a mix between ADAM_GUI and ADAM MAIN, 
 # these sections will either replace the standard welcome text with displayed information, or could possibly open up more TKinter windows,
 # it depends on what the user needs help with
 import tkinter
+from turtle import left
 import pyperclip
 import time
 import json
@@ -53,6 +55,7 @@ class Assist_Module_MK1:
         if "class" in self.user_entry_assist:
             self.class_assist_window_1 = tkinter.Toplevel() # creates another window for ADAM
             self.class_frame1 = tkinter.Frame(self.class_assist_window_1)
+            self.button_frame_left = tkinter.Frame(self.class_assist_window_1)
 
             self.class_assist_window_1.geometry('500x300+900+300')
 
@@ -62,42 +65,37 @@ class Assist_Module_MK1:
             self.label_assist_setting = tkinter.Label(self.class_frame1, textvariable = self.assistance_label1)  
             ####
             # copy and paste storage
-            copy_dictionary = {}
-
-
-            filehandle = "Project_ADAM\STORAGE\copy_and_paste_samples.txt"
-            with open(filehandle) as d:
-                for line in d:
-                    copy_dictionary[line.strip()] = [next(d).strip()]
+            #an empty dictionary
+ 
             
-                
-
+            dictionary_storage = {}
+            f = open('Project_ADAM\STORAGE\copy_and_paste_samples.txt', 'r')
+            for line in f.readlines():
+                name,action = line.split("|")
+                dictionary_storage[name] = (action)
             
-            filehandle.close()
-
-
-
-
-
-
-
-
-
-
-
-
-
             self.c1 = "self."
-            self.c2 = (copy_dictionary['getx'])
+            self.c2 = """def get_X(self):
+    return self.X
+             """
+             
+            self.c3 = """set_X(self, X):
+    self.X = X"""
+
+            # entire class demo with objects
+            self.c4 = """class Demo:"""
             ####
-            self.self_help_button = tkinter.Button(self.class_assist_window_1,text="Copy: self", command= lambda: self.action_button(self.c1))
-            self.getter_example_button = tkinter.Button(self.class_assist_window_1, text="Copy: get_attribute example")
-            self.setter_example_button = tkinter.Button(self.class_assist_window_1, text="Copy: set_attribute example")
+            self.self_help_button = tkinter.Button(self.button_frame_left,text="Copy: self", command= lambda: self.action_button(self.c1))
+            self.getter_example_button = tkinter.Button(self.button_frame_left, text="Copy: get_attribute example", command= lambda: self.action_button(self.c2))
+            self.setter_example_button = tkinter.Button(self.button_frame_left, text="Copy: set_attribute example", command= lambda:self.action_button(self.c3))
 
 
 
             self.label_assist_setting.pack()
-            self.self_help_button.pack(side="left")
+            self.self_help_button.pack()
+            self.getter_example_button.pack()
+            self.setter_example_button.pack()
+            self.button_frame_left.pack(side='left')
             self.class_frame1.pack()
 
 
@@ -108,6 +106,9 @@ class Assist_Module_MK1:
 
 
         
+
+
+
 
 
 
