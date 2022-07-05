@@ -117,7 +117,6 @@ class ADAM_GUI_V1:
 
            
 
-        
 
 
 

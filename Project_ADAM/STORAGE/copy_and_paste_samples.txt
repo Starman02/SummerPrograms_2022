@@ -1,2 +1,2 @@
 getx|def get_X(self):\n\t return self.X
-setx|def set_X(self, X):\n\t self.X = X
+setx|"""def set_X(self, X):self.X = X"""
