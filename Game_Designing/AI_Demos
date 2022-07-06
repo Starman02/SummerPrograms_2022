@@ -21,7 +21,7 @@ objects = []
 for i in range(4):
     enemy= FrameAnimation3d('monke_animation/dk', color=color.black, fps=10, scale=1, position=(uniform(-45,45),1,uniform(33,45)))
     enObject = Entity(model=r'monke_animation\dk_1.obj', collider='box', parent=enemies,scale=1, position=(0,30,0))
-    enObject.visible = False
+    
     enemy.look_at(player)
     
     enemies.append(enemy)
@@ -46,14 +46,26 @@ def update():
     
     for ev in enemies:
         dist = distance(enemy, player)
+        dastardly = ev.add_script(SmoothFollow(target=player, speed=))
+        
 
         if dist > 8:
-            dastardly = ev.add_script(SmoothFollow(target=player, speed=.5))
+            ev.resume()
+            enemy.enable()
+            
+            
+            
+            
+
+            
             
 
             print(ev.position)
 
         else:
+            ev.pause()
+            enemy.disable()
+            
             
             print('paused')
         
