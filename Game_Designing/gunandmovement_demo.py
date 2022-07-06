@@ -45,6 +45,13 @@ controller.speed = 20
     
 
 
+enemy= FrameAnimation3d('monke_animation/dk', color=color.black, fps=10, scale=1, position=(uniform(-45,45),1,uniform(33,45)))
+enObject = Entity(model=r'monke_animation\dk_1.obj', collider='box', parent=enemy,scale=1, position=(0,30,0))
+
+
+
+
+moving_monk = enemy.add_script(SmoothFollow(target=controller, speed=.5))
 
 
 
@@ -55,27 +62,7 @@ controller.speed = 20
 
 
 
-
-
-kongs = []
-objects = []
-# groups of donkey kongs
-for i in range(4):
-    
-    enemy_kong_animation = FrameAnimation3d(r'monke_animation/dk', color = color.black, scale=4, fps=25, position=(uniform(-45,45), 1,uniform(33,45)))
-    enemy_object = Entity(model=r"monke_animation/dk_1", scale=4, parent=enemy_kong_animation, position=(0,30,0))
-
-    enemy_object.visible = False
-    enemy_object.look_at(controller)
-    enemy_object.rotation_x=270
-
-    enemy_object.rotation_z = -50
-
-    kongs.append(enemy_kong_animation)
-
-    objects.append(enemy_object)
-
-
+enemy.look_at(player)
 
 
 
@@ -86,13 +73,13 @@ for i in range(4):
         
 
 class Bullet(Entity):
-    def __init__(self, speed=1000, lifetime=15, **kwargs):
+    def __init__(self, speed=100, lifetime=15, **kwargs):
         super().__init__(**kwargs)
         self.lifetime = lifetime
         self.speed = speed
         self.start = time.time()
 
-    def update_rays(self):
+    def update(self):
         ray = raycast(self.world_position, self.forward, distance= self.speed * time.dt)
         if not ray.hit and time.time() - self.start < self.lifetime:
             self.world_position += self.forward * self.speed * time.dt
@@ -100,27 +87,16 @@ class Bullet(Entity):
             destroy(self)
 
 
+def input(key):
+    if key == 'left mouse down':
+        Bullet(model=r"Assets\10176_Coconut_Whole_v01-it3.obj", texture=r"Assets\Coconut_01.jpg", scale=0.01, position=controller.camera_pivot.world_position, rotation=controller.camera_pivot.world_rotation)
+
 
 def update():
-        if held_keys['left mouse']:
-            Bullet(model=r"Assets\10176_Coconut_Whole_v01-it3.obj", texture=r"Assets\Coconut_01.jpg", scale=0.01, position=controller.camera_pivot.world_position, rotation=controller.camera_pivot.world_rotation)
-        if controller.y <-5:
-            controller.y = 2
-        for enemy in kongs:
-            if enemy.visible:
-                enemy.lookAt(controller)
-                enemy.rotation_x = 270
-                enemy.rotation_z = -50
-                dist = distance(enemy, controller)
-                if dist > 5: # if enemy is distance is greater than 5
-                    enemy.resume()
-                    diff_x = controller.x - enemy.x
-                    diff_z = controller.z - enemy.z
-                    enemy.x += 4*time.dt*diff_x*abs(diff_x)
-                    enemy.z += 4*time.dt*diff_z/abs(diff_z)
-                else:
-                    enemy.pause()
-                    print("enemy is stopped")
+    
+    
+    enemy.look_at(controller)
+
 
 
  
