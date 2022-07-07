@@ -1,6 +1,11 @@
 import pickle
 
-jimbo = {'scrimb':25, 'jimmy':27, 26:"""flim grimbo"""}
+# jimbo = {'scrimb':25, 'jimmy':27, 26:"""flim grimbo""", "c4":"""Shrimplypibin
+# oh my lord i cant believe it 
+#     jesus christ you wouldnt believe it.
+
+
+#     Shrimpy"""}
 
 
 
@@ -10,9 +15,21 @@ jimbo = {'scrimb':25, 'jimmy':27, 26:"""flim grimbo"""}
 
 
 
+pickles = open('test.dat', 'rb')
 
 
-pickles = open('test.dat', 'wb')
-pickle.dump(jimbo, pickles)
+
+
+
+
+pickle_holder = pickle.load(pickles)
+print(pickle_holder)
+
+
+import pyperclip
+pyperclip.copy(pickle_holder("c4"))
+
+
+# pickle.dump(jimbo, pickles)
 
 
