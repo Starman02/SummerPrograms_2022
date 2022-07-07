@@ -46,7 +46,7 @@ def update():
     
     for ev in enemies:
         dist = distance(enemy, player)
-        dastardly = ev.add_script(SmoothFollow(target=player, speed=))
+        dastardly = ev.add_script(SmoothFollow(target=player, speed=.05))
         
 
         if dist > 8:

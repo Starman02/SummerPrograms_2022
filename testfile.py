@@ -1,9 +1,18 @@
-dictionary = {}
-with open("lang.txt") as file:
- for line in file:
- 
-    (key, value) = line.split()
- 
-    dictionary[int(key)] = value
+import pickle
 
-print (d)
+jimbo = {'scrimb':25, 'jimmy':27, 26:"""flim grimbo"""}
+
+
+
+
+
+
+
+
+
+
+
+pickles = open('test.dat', 'wb')
+pickle.dump(jimbo, pickles)
+
+
