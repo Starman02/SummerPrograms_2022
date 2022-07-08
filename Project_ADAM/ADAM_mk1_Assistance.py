@@ -4,10 +4,12 @@
 # these sections will either replace the standard welcome text with displayed information, or could possibly open up more TKinter windows,
 # it depends on what the user needs help with
 import tkinter
-from turtle import left
+from class_datas import *
 import pyperclip
+import pickle
 import time
 import json
+
 
 
 class Assist_Module_MK1:
@@ -57,6 +59,7 @@ class Assist_Module_MK1:
             self.class_assist_window_1 = tkinter.Toplevel() # creates another window for ADAM
             self.class_frame1 = tkinter.Frame(self.class_assist_window_1)
             self.button_frame_left = tkinter.Frame(self.class_assist_window_1)
+            self.data_entry_frame = tkinter.Frame(self.class_assist_window_1)
 
             self.class_assist_window_1.geometry('500x300+900+300')
 
@@ -70,10 +73,14 @@ class Assist_Module_MK1:
  
             ###potential idea for bigger libraries, store them in .dat files, could also be used to store them in a dictionary
             dictionary_storage = {}
-            f = open('Project_ADAM\STORAGE\copy_and_paste_samples.txt', 'r')
-            for line in f.readlines():
-                name,action = line.split("|")
-                dictionary_storage[name] = (action)
+            try:
+
+                f = open('copy_and_paste_samples.txt', 'r')
+                for line in f.readlines():
+                    name,action = line.split("|")
+                    dictionary_storage[name] = (action)
+            except:
+                print("my B")
             
             self.c1 = "self."
             self.c2 = """def get_X(self):
@@ -107,6 +114,8 @@ class Assist_Module_MK1:
             self.setter_example_button = tkinter.Button(self.button_frame_left, text="Copy: set_attribute example", command= lambda:self.action_button(self.c3))
             self.demo_button = tkinter.Button(self.button_frame_left, text="Copy: Class Demo", command= lambda:self.action_button(self.c4))
             self.string_returning_demo = tkinter.Button(self.button_frame_left, text="Copy: String Printing function", command= lambda:self.action_button(self.c5))
+            
+            self.open_data_entry_window = tkinter.Button(self.button_frame_left, text='Open data window', command= lambda: self.data_window_classes())
 
 
 
@@ -115,9 +124,17 @@ class Assist_Module_MK1:
             self.getter_example_button.pack()
             self.setter_example_button.pack()
             self.string_returning_demo.pack()
+            self.open_data_entry_window.pack()
             self.demo_button.pack()
             self.button_frame_left.pack(side='left')
+            self.data_entry_frame.pack()
             self.class_frame1.pack()
+
+
+            
+
+            
+
             ################################################################
 
 
@@ -148,20 +165,6 @@ class Assist_Module_MK1:
             #### Storage for ADAMGUI MODULES###
 
             
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
 
             self.self_help_button = tkinter.Button(self.button_frame_left,text="Copy: self", command= lambda: self.action_button(self.c1))
 
@@ -202,6 +205,46 @@ class Assist_Module_MK1:
         
         pyperclip.copy(text_placeholder)
         self.assistance_label1.set("Action has been Preformed")
+
+
+    def data_window_classes(self):
+                self.data_class_window = tkinter.Toplevel() # creates another window for ADAM
+                self.data_frame = tkinter.Frame(self.data_class_window)
+
+
+                self.data_label = tkinter.Label(self.data_frame, text='Enter data to be copied and pasted, Be careful as the data is stored in a DAT file, making data unreadible in file form')
+
+
+
+                self.data_entry_box = tkinter.Text(self.data_frame, width=80, height=25)
+                self.convert_data_button = tkinter.Button(self.data_frame, text="convert text to dictionary and append to dat file", command= lambda: self.append_data_to_file())
+
+                
+            
+                
+
+                self.data_label.pack()
+
+                self.data_entry_box.pack()
+                self.convert_data_button.pack()
+                
+                self.data_frame.pack()
+    
+    def append_data_to_file(self):
+        self.original_DATA = str(self.data_entry_box.get())
+
+        emmpty_dictionary = {}
+        for idx, ele in enumerate(self.original_DATA.split('|')):
+            emmpty_dictionary[idx] = ele
+
+        print (emmpty_dictionary)        
+        
+
+    
+
+
+
+                
 
 
         
