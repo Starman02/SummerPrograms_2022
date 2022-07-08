@@ -4,6 +4,7 @@
 # these sections will either replace the standard welcome text with displayed information, or could possibly open up more TKinter windows,
 # it depends on what the user needs help with
 import tkinter
+from turtle import end_fill
 from class_datas import *
 import pyperclip
 import pickle
@@ -197,7 +198,7 @@ class Assist_Module_MK1:
 
 
 
-
+####### required functions ################
 
 
 
@@ -208,34 +209,44 @@ class Assist_Module_MK1:
 
 
     def data_window_classes(self):
-                self.data_class_window = tkinter.Toplevel() # creates another window for ADAM
-                self.data_frame = tkinter.Frame(self.data_class_window)
+                self.__data_class_window = tkinter.Toplevel() # creates another window for ADAM
+                self.__data_frame = tkinter.Frame(self.__data_class_window)
 
 
-                self.data_label = tkinter.Label(self.data_frame, text='Enter data to be copied and pasted, Be careful as the data is stored in a DAT file, making data unreadible in file form')
+                self.data_label = tkinter.Label(self.__data_frame, text='Enter data to be copied and pasted, Be careful as the data is stored in a DAT file, making data unreadible in file form')
 
 
-
-                self.data_entry_box = tkinter.Text(self.data_frame, width=80, height=25)
-                self.convert_data_button = tkinter.Button(self.data_frame, text="convert text to dictionary and append to dat file", command= lambda: self.append_data_to_file())
+                self.data_key_entry = tkinter.Entry(self.__data_frame)
+                self.data_entry_box = tkinter.Text(self.__data_frame, width=80, height=25)
+                self.convert_data_button = tkinter.Button(self.__data_frame, text="convert text to dictionary and append to dat file", command= lambda: self.append_data_to_file())
 
                 
             
                 
 
                 self.data_label.pack()
-
+                self.data_key_entry.pack()
                 self.data_entry_box.pack()
                 self.convert_data_button.pack()
                 
-                self.data_frame.pack()
+                self.__data_frame.pack()
     
     def append_data_to_file(self):
-        self.original_DATA = str(self.data_entry_box.get())
+        self.__data_key = self.data_key_entry.get()
+        self.original_DATA_entry = self.data_entry_box.get("1.0", tkinter.END)
+        
+        try:
+            print('appending')
+            emmpty_dictionary[str(self.__data_key)] = self.original_DATA_entry
 
-        emmpty_dictionary = {}
-        for idx, ele in enumerate(self.original_DATA.split('|')):
-            emmpty_dictionary[idx] = ele
+        except:
+            emmpty_dictionary = {}
+            emmpty_dictionary[self.__data_key] = self.original_DATA_entry
+            print("done")
+
+            
+        
+        
 
         print (emmpty_dictionary)        
         
