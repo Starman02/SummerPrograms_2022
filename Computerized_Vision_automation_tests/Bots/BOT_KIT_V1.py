@@ -34,7 +34,7 @@ pyautogui.displayMousePosition()          # displays x y coords and RGB values f
 
 # tests area for the program 
 
-# while keyboard.is_pressed('q') == False:
+while keyboard.is_pressed('q') == False:
 
 
 #     if pyautogui.pixelMatchesColor(2123, 43,(221 ,189 ,62)) == True:
