@@ -3,11 +3,9 @@
 # these parts will be a mix between ADAM_GUI and ADAM MAIN, 
 # these sections will either replace the standard welcome text with displayed information, or could possibly open up more TKinter windows,
 # it depends on what the user needs help with
-from cmath import pi
-from dbm import dumb
+
 import tkinter
-from turtle import end_fill
-from class_datas import *
+from ADAM_class_assist_MK1 import *
 import pyperclip
 import pickle
 import time
@@ -58,88 +56,12 @@ class Assist_Module_MK1:
         self.user_entry_assist = str(self.entry_box_assist.get())
         
         # for every item in the test list, do an action
+        
+        ####PUT CLASS ASSIST HERE###
         if "class" in self.user_entry_assist:
-            ####################################################################################################################################################################################
-            self.class_assist_window_1 = tkinter.Toplevel() # creates another window for ADAM
-            self.class_frame1 = tkinter.Frame(self.class_assist_window_1)
-            self.button_frame_left = tkinter.Frame(self.class_assist_window_1)
-            self.data_entry_frame = tkinter.Frame(self.class_assist_window_1)
-
-            self.class_assist_window_1.geometry('500x300+900+300')
-
-            self.assistance_label1= tkinter.StringVar()
-
-            self.assistance_label1.set("Help Modules")
-            self.label_assist_setting = tkinter.Label(self.class_frame1, textvariable = self.assistance_label1)  
-            ####
-            # copy and paste storage
-            #an empty dictionary
- 
-            ###potential idea for bigger libraries, store them in .dat files, could also be used to store them in a dictionary
-            
-            
-
-            try:
-                file_open= open('D:\Summer_Programs_2021\Project_ADAM\STORAGE\copy_paste_storage.dat', 'r')
-                self.copy_paste_storage = pickle.load(self.copy_paste_storage)
-                file_open.close()
-            except:
-                self.copy_paste_storage = {}
-            
-            self.c1 = 'drigs'
-            self.c2 = """def get_X(self):
-    return self.X
-             """
-             
-            self.c3 = """set_X(self, X):
-    self.X = X"""
-
-            # entire class demo with objects
-            self.c4 = """class Demo:
-    def __init(self, X):
-        self.X = X
+            d = ADAM_class_assist_MK1()
+            d()
         
-        
-    def set_X(self, X):
-        self.X = X
-
-
-    def get_X(self):
-        return self.X
-        """
-            self.c5 = """def __str__(self):
-    return "the value of X is " + self.X
-            """
-
-        
-            ####
-            self.self_help_button = tkinter.Button(self.button_frame_left,text="Copy: self", command= lambda: self.action_button(self.c1))
-            self.getter_example_button = tkinter.Button(self.button_frame_left, text="Copy: get_attribute example", command= lambda: self.action_button(self.c2))
-            self.setter_example_button = tkinter.Button(self.button_frame_left, text="Copy: set_attribute example", command= lambda:self.action_button(self.c3))
-            self.demo_button = tkinter.Button(self.button_frame_left, text="Copy: Class Demo", command= lambda:self.action_button(self.c4))
-            self.string_returning_demo = tkinter.Button(self.button_frame_left, text="Copy: String Printing function", command= lambda:self.action_button(self.c5))
-            
-            self.open_data_entry_window = tkinter.Button(self.button_frame_left, text='Open data window', command= lambda: self.data_window_classes())
-
-
-
-            self.label_assist_setting.pack()
-            self.self_help_button.pack()
-            self.getter_example_button.pack()
-            self.setter_example_button.pack()
-            self.string_returning_demo.pack()
-            self.open_data_entry_window.pack()
-            self.demo_button.pack()
-            self.button_frame_left.pack(side='left')
-            self.data_entry_frame.pack()
-            self.class_frame1.pack()
-
-
-            
-
-            
-
-            ################################################################
 
 
 
@@ -149,6 +71,7 @@ class Assist_Module_MK1:
 
 
 
+    
         if "ADAM GUI" in self.user_entry_assist:
             #################################################################################################
             self.ADAMGUI_ASSIST = tkinter.Toplevel() # creates another window for ADAM
@@ -178,29 +101,6 @@ class Assist_Module_MK1:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ####### required functions ################
 
 
@@ -214,10 +114,10 @@ class Assist_Module_MK1:
     def data_window_classes(self):
 
         try:
-            input_file = open('D:\Summer_Programs_2021\Project_ADAM\STORAGE\copy_paste_storage.dat', 'r+b')
+            input_file = open('Project_ADAM\STORAGE\copy_paste_storage.dat', 'r+b')
             self.copy_paste_storage = pickle.load(input_file)
             input_file.close()
-        except(IOError, AttributeError):
+        except(IOError, AttributeError, EOFError):
             self.copy_paste_storage = {}
         
             
@@ -254,11 +154,11 @@ class Assist_Module_MK1:
             call_name = self.__data_key
             code = self.original_DATA_entry
             self.copy_paste_storage[call_name] = code
-            save_to_file = open('D:\Summer_Programs_2021\Project_ADAM\STORAGE\copy_paste_storage.dat', "r+b")
+            save_to_file = open('Project_ADAM\STORAGE\copy_paste_storage.dat', "r+b")
             pickle.dump(self.copy_paste_storage, save_to_file)
             save_to_file.close()
         except FileNotFoundError:
-            save_to_file = open('D:\Summer_Programs_2021\Project_ADAM\STORAGE\copy_paste_storage.dat', "wb")
+            save_to_file = open('Project_ADAM\STORAGE\copy_paste_storage.dat', "wb")
             pickle.dump(self.copy_paste_storage, save_to_file)
             save_to_file.close()
 
