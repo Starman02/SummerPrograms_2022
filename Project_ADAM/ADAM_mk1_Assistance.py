@@ -3,6 +3,8 @@
 # these parts will be a mix between ADAM_GUI and ADAM MAIN, 
 # these sections will either replace the standard welcome text with displayed information, or could possibly open up more TKinter windows,
 # it depends on what the user needs help with
+from cmath import pi
+from dbm import dumb
 import tkinter
 from turtle import end_fill
 from class_datas import *
@@ -50,6 +52,7 @@ class Assist_Module_MK1:
 
     def ADAM_ASSIST_V1(self):
 
+
         print("passed into")
 
         self.user_entry_assist = str(self.entry_box_assist.get())
@@ -73,17 +76,17 @@ class Assist_Module_MK1:
             #an empty dictionary
  
             ###potential idea for bigger libraries, store them in .dat files, could also be used to store them in a dictionary
-            dictionary_storage = {}
-            try:
-
-                f = open('copy_and_paste_samples.txt', 'r')
-                for line in f.readlines():
-                    name,action = line.split("|")
-                    dictionary_storage[name] = (action)
-            except:
-                print("my B")
             
-            self.c1 = "self."
+            
+
+            try:
+                file_open= open('D:\Summer_Programs_2021\Project_ADAM\STORAGE\copy_paste_storage.dat', 'r')
+                self.copy_paste_storage = pickle.load(self.copy_paste_storage)
+                file_open.close()
+            except:
+                self.copy_paste_storage = {}
+            
+            self.c1 = 'drigs'
             self.c2 = """def get_X(self):
     return self.X
              """
@@ -209,46 +212,61 @@ class Assist_Module_MK1:
 
 
     def data_window_classes(self):
-                self.__data_class_window = tkinter.Toplevel() # creates another window for ADAM
-                self.__data_frame = tkinter.Frame(self.__data_class_window)
+
+        try:
+            input_file = open('D:\Summer_Programs_2021\Project_ADAM\STORAGE\copy_paste_storage.dat', 'r+b')
+            self.copy_paste_storage = pickle.load(input_file)
+            input_file.close()
+        except(IOError, AttributeError):
+            self.copy_paste_storage = {}
+        
+            
 
 
-                self.data_label = tkinter.Label(self.__data_frame, text='Enter data to be copied and pasted, Be careful as the data is stored in a DAT file, making data unreadible in file form')
+        #  initialize the first dictionary and open it
+        self.__data_class_window = tkinter.Toplevel() # creates another window for ADAM
+        self.__data_frame = tkinter.Frame(self.__data_class_window)
+
+        self.data_label = tkinter.Label(self.__data_frame, text='Enter data to be copied and pasted, Be careful as the data is stored in a DAT file, making data unreadible in file form')
 
 
-                self.data_key_entry = tkinter.Entry(self.__data_frame)
-                self.data_entry_box = tkinter.Text(self.__data_frame, width=80, height=25)
-                self.convert_data_button = tkinter.Button(self.__data_frame, text="convert text to dictionary and append to dat file", command= lambda: self.append_data_to_file())
+        self.data_key_entry = tkinter.Entry(self.__data_frame)
+        self.data_entry_box = tkinter.Text(self.__data_frame, width=80, height=25)
+        self.convert_data_button = tkinter.Button(self.__data_frame, text="convert text to dictionary and append to dat file", command= lambda: self.append_data_to_file())
 
                 
             
                 
 
-                self.data_label.pack()
-                self.data_key_entry.pack()
-                self.data_entry_box.pack()
-                self.convert_data_button.pack()
+        self.data_label.pack()
+        self.data_key_entry.pack()
+        self.data_entry_box.pack()
+        self.convert_data_button.pack()
                 
-                self.__data_frame.pack()
+        self.__data_frame.pack()
     
+
     def append_data_to_file(self):
         self.__data_key = self.data_key_entry.get()
         self.original_DATA_entry = self.data_entry_box.get("1.0", tkinter.END)
         
         try:
-            print('appending')
-            emmpty_dictionary[str(self.__data_key)] = self.original_DATA_entry
+            call_name = self.__data_key
+            code = self.original_DATA_entry
+            self.copy_paste_storage[call_name] = code
+            save_to_file = open('D:\Summer_Programs_2021\Project_ADAM\STORAGE\copy_paste_storage.dat', "r+b")
+            pickle.dump(self.copy_paste_storage, save_to_file)
+            save_to_file.close()
+        except FileNotFoundError:
+            save_to_file = open('D:\Summer_Programs_2021\Project_ADAM\STORAGE\copy_paste_storage.dat', "wb")
+            pickle.dump(self.copy_paste_storage, save_to_file)
+            save_to_file.close()
 
-        except:
-            emmpty_dictionary = {}
-            emmpty_dictionary[self.__data_key] = self.original_DATA_entry
-            print("done")
-
+        print('action preformed')
             
         
         
 
-        print (emmpty_dictionary)        
         
 
     
