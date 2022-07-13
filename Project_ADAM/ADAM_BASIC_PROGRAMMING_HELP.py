@@ -12,7 +12,8 @@ class Basic_programing_Assist:
                     ####################################################################################################################################################################################
         self.programming_window = tkinter.Toplevel() # creates another window for ADAM
         self.assist_basic_frame = tkinter.Frame(self.programming_window)
-        self.button_frame_left2 = tkinter.Frame(self.assist_basic_frame)
+        self.button_frame_left2 = tkinter.Frame(self.programming_window)
+        # potential explanation window
         self.data_entry_frame1 = tkinter.Frame(self.programming_window)
 
         self.programming_window.geometry('500x300+900+300')
@@ -62,25 +63,28 @@ class Basic_programing_Assist:
 
         
 
-        ####
-        self.for_loop_example = tkinter.Button(self.button_frame_left2,text="Copy: self", command= lambda: self.action_button1(self.b1))
-        self.while_loop_example = tkinter.Button(self.button_frame_left2, text="Copy: get_attribute example", command= lambda: self.action_button1(self.b2))
-        self.open_dictionary_example = tkinter.Button(self.button_frame_left2, text="Copy: set_attribute example", command= lambda:self.action_button1(self.b3))
-        
-        self.save_dictionary_to_dat = tkinter.Button(self.button_frame_left2, text="Copy: String Printing function", command= lambda:self.action_button1(self.b4))
+        ###### buttons
+        self.for_loop_example = tkinter.Button(self.button_frame_left2,text="Copy: for loop example", command= lambda: self.action_button1(self.b1))
+        self.for_loop_explanation = tkinter.Button(self.button_frame_left2, text="View Explanation")
+        self.while_loop_example = tkinter.Button(self.button_frame_left2, text="Copy: while loop example", command= lambda: self.action_button1(self.b2))
+        self.while_loop_explanation = tkinter.Button(self.button_frame_left2, text="Copy: while loop", command= lambda: self.action_button1(self.b2))
+        self.open_dictionary_example = tkinter.Button(self.button_frame_left2, text="Copy: open a dictionionary from a dat file example", command= lambda:self.action_button1(self.b3))
+        self.save_dictionary_to_dat = tkinter.Button(self.button_frame_left2, text="Copy: save a dictionary to a dat file function", command= lambda:self.action_button1(self.b4))
         
         self.open_data_input_entry_window = tkinter.Button(self.data_entry_frame1, text='Open data window', command= lambda: self.data_window_classes1())
-
+        ###### BUTTONS ######
 
 
         self.label_assist_setting1.pack()
         self.for_loop_example.pack()
+        self.for_loop_explanation.pack(side='left')
         self.while_loop_example.pack()
+        self.while_loop_explanation.pack(side='left')
         self.open_dictionary_example.pack()
         self.save_dictionary_to_dat.pack()
         self.open_data_input_entry_window.pack(side='bottom')
         
-        self.assist_basic_frame.pack()
+        self.assist_basic_frame.pack(side='top')
         self.button_frame_left2.pack(side='left')
         self.data_entry_frame1.pack(side='bottom')
         
