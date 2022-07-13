@@ -59,7 +59,7 @@ class Assist_Module_MK1:
         
         ####PUT CLASS ASSIST HERE###
         if "class" in self.user_entry_assist:
-            d = ADAM_class_assist_MK1()
+            d = Class_Assist()
             d()
         
 
