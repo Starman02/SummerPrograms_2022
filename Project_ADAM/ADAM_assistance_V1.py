@@ -76,9 +76,9 @@ class Assist_Module_MK1:
 
 
     
-        if "ADAM GUI" in self.user_entry_assist:
+        if "programming help" in self.user_entry_assist:
             #################################################################################################
-            p = Basic_programing_Assist
+            p = Basic_programing_Assist()
             p.class_assist_start1()
 
 
