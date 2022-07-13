@@ -5,7 +5,9 @@ import time
 import json
 
 class Class_Assist:
-    def class_assist(self):
+
+    
+    def class_assist_start(self):
                 
                     ####################################################################################################################################################################################
         self.class_assist_window_1 = tkinter.Toplevel() # creates another window for ADAM
@@ -28,7 +30,7 @@ class Class_Assist:
         
         # load Data file into copy_paste storage
         try:
-            file_open= open('Project_ADAM\STORAGE\copy_paste_storage.dat', 'rb')
+            file_open= open('Project_ADAM\STORAGE\copy_paste_storage_CLASS_ASSIST.dat', 'rb')
             self.copy_paste_storage = pickle.load(file_open)
             file_open.close()
         except:
@@ -95,3 +97,63 @@ class Class_Assist:
         
 
                     ################################################################
+
+
+    def action_button(self, text_placeholder):
+        
+        pyperclip.copy(text_placeholder)
+        self.assistance_label1.set("Action has been Preformed")
+
+
+    def data_window_classes(self):
+
+        try:
+            input_file = open('Project_ADAM\STORAGE\copy_paste_storage_CLASS_ASSIST.dat', 'r+b')
+            self.copy_paste_storage = pickle.load(input_file)
+            input_file.close()
+        except(IOError, AttributeError, EOFError):
+            self.copy_paste_storage = {}
+        
+            
+
+
+        #  initialize the first dictionary and open it
+        self.__data_class_window = tkinter.Toplevel() # creates another window for ADAM
+        self.__data_frame = tkinter.Frame(self.__data_class_window)
+
+        self.data_label = tkinter.Label(self.__data_frame, text='Enter data to be copied and pasted, Be careful as the data is stored in a DAT file, making data unreadible in file form')
+
+
+        self.data_key_entry = tkinter.Entry(self.__data_frame)
+        self.data_entry_box = tkinter.Text(self.__data_frame, width=80, height=25)
+        self.convert_data_button = tkinter.Button(self.__data_frame, text="convert text to dictionary and append to dat file", command= lambda: self.append_data_to_file())
+
+                
+            
+                
+
+        self.data_label.pack()
+        self.data_key_entry.pack()
+        self.data_entry_box.pack()
+        self.convert_data_button.pack()
+                
+        self.__data_frame.pack()
+    
+
+    def append_data_to_file(self):
+        self.__data_key = self.data_key_entry.get()
+        self.original_DATA_entry = self.data_entry_box.get("1.0", tkinter.END)
+        
+        try:
+            call_name = self.__data_key
+            code = self.original_DATA_entry
+            self.copy_paste_storage[call_name] = code
+            save_to_file = open('Project_ADAM\STORAGE\copy_paste_storage_CLASS_ASSIST.dat', "r+b")
+            pickle.dump(self.copy_paste_storage, save_to_file)
+            save_to_file.close()
+        except FileNotFoundError:
+            save_to_file = open('Project_ADAM\STORAGE\copy_paste_storage_CLASS_ASSIST.dat', "wb")
+            pickle.dump(self.copy_paste_storage, save_to_file)
+            save_to_file.close()
+
+        print('action preformed')
