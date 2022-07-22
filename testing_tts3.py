@@ -9,7 +9,7 @@ a1 = "say what again, say what one more god damn time, i dare ya, I double dare 
 
 class ADAM_SPEECH_V1:
     def __init__(self, sentence='welcome to adam'):
-        self.__sentence = sentence
+        self.sentence = sentence
 
 	
     def set_sentence(self, sentence):
@@ -20,12 +20,12 @@ class ADAM_SPEECH_V1:
         return self.sentence       
 
 
-    def speaking_engine(self, sentence):
+    def speaking_engine(self):
         # init function to get an engine instance for the speech synthesis
         engine = pyttsx3.init()
         
         # say method on the engine that passing input text to be spoken
-        engine.say(sentence)
+        engine.say(self.sentence)
         
         # run and wait method, it processes the voice commands.
         engine.runAndWait()
@@ -40,11 +40,12 @@ class ADAM_SPEECH_V1:
 
 
 
-# abble = ADAM_SPEECH_V1()
+abble = ADAM_SPEECH_V1()
 
-# print("waiting 3 seconds")
-# import time
-# time.sleep(3)
-# abble.speaking_engine(a1)
+print("waiting 3 seconds")
+import time
+time.sleep(3)
+abble.set_sentence(a1)
+abble.speaking_engine()
 
 

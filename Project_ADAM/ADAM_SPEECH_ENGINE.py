@@ -4,7 +4,7 @@ import pyttsx3
 
 class ADAM_SPEECH_V1:
     def __init__(self, sentence='welcome to adam'):
-        self.__sentence = sentence
+        self.sentence = sentence
 
 	
     def set_sentence(self, sentence):
