@@ -67,19 +67,20 @@ class Assist_Module_MK1:
             d.class_assist_start()
         
 
-
-
-
-
-
-
-
-
     
         if "programming help" in self.user_entry_assist:
             #################################################################################################
             p = Basic_programing_Assist()
             p.class_assist_start1()
+
+
+        # if "adam help" in self.user_entry_assist:
+        #     a = ADAM_Assist_V1()
+        #     a.adam_assist_open()
+
+
+
+        
 
 
 

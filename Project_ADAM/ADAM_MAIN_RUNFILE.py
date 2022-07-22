@@ -4,7 +4,7 @@ from platform import win32_edition
 import tkinter
 
 ###Import Adam_Modules###'
-from ADAM_assistance_V1 import *
+from ADAM_ASSIST_HANDOFF import *
 
 #########################
 
