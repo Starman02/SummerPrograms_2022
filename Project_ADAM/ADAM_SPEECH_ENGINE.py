@@ -1,9 +1,4 @@
-from locale import atoi
 import pyttsx3
- 
-a1 = "say what again, say what one more god damn time, i dare ya, I double dare ya motherfucka"
-
-# speaking_engine()
 
 
 
@@ -30,21 +25,5 @@ class ADAM_SPEECH_V1:
         # run and wait method, it processes the voice commands.
         engine.runAndWait()
 
-
-
-
-
-
-
-
-
-
-
-# abble = ADAM_SPEECH_V1()
-
-# print("waiting 3 seconds")
-# import time
-# time.sleep(3)
-# abble.speaking_engine(a1)
 
 
